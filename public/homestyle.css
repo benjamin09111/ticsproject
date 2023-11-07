@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600");
+@import url("https://fonts.googleapis.com/css?family=Khula:700");
+
+.getT{
+    background-color: rgb(26, 178, 79); /* Verde médico */
+    color: #ffffff; /* Blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .5s ease;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
