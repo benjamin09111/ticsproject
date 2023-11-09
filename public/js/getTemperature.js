@@ -20,7 +20,7 @@ gettemperaturebutton.addEventListener("click", function(event) {
     if(token == null || !token){
         window.location.href = "/";
     }else{
-        fetch('http://localhost:4000/gettemperature', {
+        fetch('https://ticsproject.onrender.com/gettemperature', {
         method: 'GET',
         headers: {
             'token': token,

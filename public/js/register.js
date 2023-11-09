@@ -31,7 +31,7 @@ signupForm.addEventListener('submit', (event) => {
         contenedor.appendChild(n2);
     }
     else{
-        fetch('http://localhost:4000/usuario', {
+        fetch('https://ticsproject.onrender.com/usuario', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

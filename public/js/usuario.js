@@ -18,7 +18,7 @@ function obtenerDatosUsuario() {
     if(token == null || !token){
         window.location.href = "/error"
     }else{
-        fetch('http://localhost:4000/usuario', {
+        fetch('https://ticsproject.onrender.com/usuario', {
         method: 'GET', // Método de la solicitud es GET
         headers: {
             'token': token, // Incluir el token en la cabecera
