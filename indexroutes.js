@@ -70,6 +70,8 @@ router.get("/gettemperatures", async(req,res)=>{
 router.post("/temperatureget", async (req, res) => {
     const { t} = req.body;
 
+    console.log(req.body);
+
     did = 5;
 
     if(!t){
