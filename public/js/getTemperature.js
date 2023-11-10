@@ -1,8 +1,16 @@
+function mostrarModal() {
+    const modalBg = document.getElementById("modalBg");
+    const modal = document.getElementById("cuidadoModal");
+    const cambiarcolor = document.getElementById("temperaturetext");
+
+    cambiarcolor.style.color = "red";
+    modalBg.style.display = "block";
+    modal.style.display = "block";
+  }
+
 const gettemperaturebutton = document.getElementById("getTemperature");
 
-//AJUSTAR DESPUES LA DIRECCION DE LA PAGINA, NO LOCALHOST
-gettemperaturebutton.addEventListener("click", function(event) {
-    //cambiar a que se refresce la pagina
+function actualizar(){
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
 
@@ -37,26 +45,47 @@ gettemperaturebutton.addEventListener("click", function(event) {
             const bt2 = document.getElementById("b2");
             const bt3 = document.getElementById("b3");
 
-            const ocupado = "OCUPADO";
-            const vacio = "VACÍO";
-
             if(buttons[0] == 1){
-                bt1.textContent = ocupado;
+                bt1.textContent = "OCUPADO";
+                bt2.style.color = "black";
             }else{
-                bt1.textContent = vacio;
+                bt1.textContent = "VACÍO";
+                bt1.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[1] == 1){
-                bt2.textContent = ocupado;
+                bt2.textContent = "OCUPADO";
+                bt2.style.color = "black";
             }else{
-                bt2.textContent = vacio;
+                bt2.textContent = "VACÍO";
+                bt2.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[2] == 1){
-                bt3.textContent = ocupado;
+                bt3.textContent = "OCUPADO";
+                bt3.style.color = "black";
             }else{
-                bt3.textContent = vacio;
+                bt3.textContent = "VACÍO";
+                bt3.style.color = "rgb(26, 178, 79)";
+            }
+
+            //modal aviso
+            const parsedTemperature = parseFloat(temperature);
+            if(parsedTemperature > 20 || parsedTemperature < 0){
+                mostrarModal();
+            }else{
+                console.log("No se muestra modal...")
             }
         })
     }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+   actualizar();
 });
+
+//AJUSTAR DESPUES LA DIRECCION DE LA PAGINA, NO LOCALHOST
+gettemperaturebutton.addEventListener("click", function(event) {
+    actualizar();
+});
+

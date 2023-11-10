@@ -1,7 +1,5 @@
-const gettemperaturesbutton = document.getElementById("getTemperatures");
-
 //AJUSTAR DESPUES LA DIRECCION DE LA PAGINA, NO LOCALHOST
-gettemperaturesbutton.addEventListener("click", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
     //cambiar a que se refresce la pagina
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
