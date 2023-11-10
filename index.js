@@ -14,6 +14,10 @@ app.set('port', process.env.PORT || 4000);
 app.use(cookieParser());
 app.use(express.static("public"));
 
+// Otras configuraciones
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -22,12 +26,9 @@ mongoose.connect(process.env.MONGODB_URI, {
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB', err));
 
-// Rutas
+  // Rutas
 app.use(indexRoutes);
 app.use(viewRoutes);
-
-// Otras configuraciones
-app.use(express.json());
 
 // Inicializar el servidor
 app.listen(app.get('port'));

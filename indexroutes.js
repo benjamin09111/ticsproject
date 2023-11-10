@@ -68,6 +68,7 @@ router.get("/gettemperatures", async(req,res)=>{
 
 //aqui envía la info el dispositivo
 router.post("/temperatureget", async (req, res) => {
+    console.log("Full request:", req);
     const {temperature} = req.body;
 
     console.log(req.body);
