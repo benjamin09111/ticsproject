@@ -68,7 +68,9 @@ router.get("/gettemperatures", async(req,res)=>{
 
 //aqui envía la info el dispositivo
 router.post("/temperatureget", async (req, res) => {
-    const { t, did } = req.body;
+    const { t} = req.body;
+
+    did = 5;
 
     if(!t){
         console.log("Falla. No llego la temperatura.");
