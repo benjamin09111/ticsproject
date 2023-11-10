@@ -68,13 +68,13 @@ router.get("/gettemperatures", async(req,res)=>{
 
 //aqui envía la info el dispositivo
 router.post("/temperatureget", async (req, res) => {
-    const { t} = req.body;
+    const {temperature} = req.body;
 
     console.log(req.body);
 
     did = 5;
 
-    if(!t){
+    if(!temperature){
         console.log("Falla. No llego la temperatura.");
         return null;
     }else if(!did){
@@ -92,10 +92,10 @@ router.post("/temperatureget", async (req, res) => {
         return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
     }
 
-    profile.temperature = t; //temperatura actual
-    profile.temperatures.unshift(t);
+    profile.temperature = temperature; //temperatura actual
+    profile.temperatures.unshift(temperature);
     profile.save();
-    console.log("Todo correcto. Ha llegado la temperatura y perfil: ",t," ", did);
+    console.log("Todo correcto. Ha llegado la temperatura y perfil: ",temperature," ", did);
 })
 
 router.get("/usuario", authenticateToken, async (req, res) => {
