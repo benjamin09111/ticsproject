@@ -37,8 +37,8 @@ router.get("/gettemperature", async(req,res)=>{
         return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
     }
 
-    //retornar la temperature del perfil asociado
-    res.status(200).json({temperature: profile.temperature});
+    //retornar la temperature y botones del perfil asociado
+    res.status(200).json({temperature: profile.temperature, buttons: profile.buttons});
 
 });
 
@@ -64,15 +64,38 @@ router.get("/gettemperatures", async(req,res)=>{
     //retornar el array de temperature del perfil asociado
     res.status(200).json({temperatures: profile.temperatures});
 
-})
+});
+
+//app envía los botones y se actualiza el arreglo
+router.post("/buttonsget", async(req,res)=>{
+    const {buttonState1, buttonState2, buttonState3} = req.body;
+    did = 5;
+
+    if(!buttonState1 || !buttonState2 || !buttonState3){
+        console.log("Fallo. No llego algun boton.");
+        return null;
+    }
+    
+    console.log("Llegaron");
+
+    //guardar en base de datos
+    const profile = await Profile.findOne({did: did});
+
+    if(!profile){
+        console.log("Falla. Perfil no encontrado.");
+        return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+    }
+
+    profile.buttons[0] = buttonState1;
+    profile.buttons[1]= buttonState2;
+    profile.buttons[2] = buttonState3;
+    profile.save();
+
+});
 
 //aqui envía la info el dispositivo
 router.post("/temperatureget", async (req, res) => {
-    console.log("Full request:", req);
     const {temperature} = req.body;
-
-    console.log(req.body);
-
     did = 5;
 
     if(!temperature){

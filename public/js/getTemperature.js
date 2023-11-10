@@ -29,10 +29,34 @@ gettemperaturebutton.addEventListener("click", function(event) {
     })
         .then(response => response.json())
         .then(data => {
-            const {temperature} = data;
+            const {temperature, buttons} = data;
             const text = document.getElementById("temperaturetext")
             text.textContent = temperature;
-            console.log("complete");
+
+            const bt1 = document.getElementById("b1");
+            const bt2 = document.getElementById("b2");
+            const bt3 = document.getElementById("b3");
+
+            const ocupado = "OCUPADO";
+            const vacio = "VACÍO";
+
+            if(buttons[0] == 1){
+                bt1.textContent = ocupado;
+            }else{
+                bt1.textContent = vacio;
+            }
+
+            if(buttons[1] == 1){
+                bt2.textContent = ocupado;
+            }else{
+                bt2.textContent = vacio;
+            }
+
+            if(buttons[2] == 1){
+                bt3.textContent = ocupado;
+            }else{
+                bt3.textContent = vacio;
+            }
         })
     }
 });

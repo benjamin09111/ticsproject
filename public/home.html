@@ -23,13 +23,27 @@
     </nav>
 
     <main>
+        <article class="buttons-container">
+            <div class="b" id="b1"></div>
+            <div class="b1" id="b2"></div>
+            <div class="b1" id="b3"></div>
+        </article>
         <article>
-            <button class="getT" id="getTemperature" type="submit">Obtener temperatura</button>
-            <p id="temperaturetext"></p>
+            <div>
+                <button class="getT" id="getTemperature" type="submit">Obtener temperatura</button>
+                <div id="temperaturetext"></div>
+            </div>
+        </article>
+        <article class="historial-container">
+            <button class="getT" id="getTemperatures" type="submit">Ver historial de temperaturas</button>
+            <div>
+                <ul id="temperaturesList"></ul>
+            </div>
         </article>
     </main>
     
     <script src="./js/getTemperature.js"></script>
+    <script src="./js/getTemperatures.js"></script>
     <script src="./js/salir.js"></script>
 </body>
 </html>

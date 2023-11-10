@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     temperatures : {
         type: [Number],
         default: []
+    },
+    buttons : {
+        type: [Number],
+        default: [-1,-1,-1]
     }
 },{
     timestamps: true
