@@ -1,0 +1,40 @@
+<style>
+#inicio-sesion{
+
+	margin-top: 50px;
+    margin-left: 20%;
+	
+}
+
+#psesion{
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh; 
+
+
+}
+
+.h1-custom {
+  margin-top: 40px; /* Ajusta el margen superior para alinear con el formulario */
+  font-size: 2rem; /* Tamaño de fuente similar al formulario */
+  
+}
+
+
+
+.modal-content {
+  width: 40%;
+  float: right;
+  margin-right: 40px;
+
+  margin-top: 40px;
+}
+
+
+
+
+
+
+</style>

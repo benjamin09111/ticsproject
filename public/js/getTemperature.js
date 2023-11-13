@@ -46,26 +46,26 @@ function actualizar(){
             const bt3 = document.getElementById("b3");
 
             if(buttons[0] == 1){
-                bt1.textContent = "OCUPADO";
+                bt1.textContent = "VACÍO";
                 bt2.style.color = "black";
             }else{
-                bt1.textContent = "VACÍO";
+                bt1.textContent = "OCUPADO";
                 bt1.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[1] == 1){
-                bt2.textContent = "OCUPADO";
+                bt2.textContent = "VACÍO";
                 bt2.style.color = "black";
             }else{
-                bt2.textContent = "VACÍO";
+                bt2.textContent = "OCUPADO";
                 bt2.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[2] == 1){
-                bt3.textContent = "OCUPADO";
+                bt3.textContent = "VACIO";
                 bt3.style.color = "black";
             }else{
-                bt3.textContent = "VACÍO";
+                bt3.textContent = "OCUPADO";
                 bt3.style.color = "rgb(26, 178, 79)";
             }
 
