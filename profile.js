@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     buttons : {
         type: [Number],
-        default: [-1,-1,-1]
+        default: [0,0,0]
     }
 },{
     timestamps: true

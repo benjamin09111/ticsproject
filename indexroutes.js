@@ -76,7 +76,7 @@ router.post("/buttonsget", async(req,res)=>{
         return null;
     }
     
-    console.log("Llegaron");
+    console.log("Llegaron los botones!!!");
 
     //guardar en base de datos
     const profile = await Profile.findOne({did: did});
@@ -86,9 +86,9 @@ router.post("/buttonsget", async(req,res)=>{
         return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
     }
 
-    profile.buttons[0] = buttonState1;
-    profile.buttons[1]= buttonState2;
-    profile.buttons[2] = buttonState3;
+    profile.buttons[0] = parseFloat(buttonState1);
+    profile.buttons[1]= parseFloat(buttonState2);
+    profile.buttons[2] = parseFloat(buttonState3);
     profile.save();
 
 });
@@ -120,7 +120,7 @@ router.post("/temperatureget", async (req, res) => {
     profile.temperatures.unshift(temperature);
     profile.save();
     console.log("Todo correcto. Ha llegado la temperatura y perfil: ",temperature," ", did);
-})
+});
 
 router.get("/usuario", authenticateToken, async (req, res) => {
     const token = req.headers['token'];
