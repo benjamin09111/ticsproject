@@ -36,7 +36,7 @@ function actualizar(){
         }
     })
         .then(response => response.json())
-        .then(data => {
+        .then(data =>  {
             const {temperature, buttons} = data;
             const text = document.getElementById("temperaturetext")
             text.textContent = temperature;
