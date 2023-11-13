@@ -117,7 +117,12 @@ router.post("/temperatureget", async (req, res) => {
     }
 
     profile.temperature = temperature; //temperatura actual
-    profile.temperatures.unshift(temperature);
+
+    //solo se agrega al historial si es diferente a lo ultimo leído
+    if(profile.temperatures[0] != temperature){
+        profile.temperatures.unshift(temperature);
+    }
+
     profile.save();
     console.log("Todo correcto. Ha llegado la temperatura y perfil: ",temperature," ", did);
 });
