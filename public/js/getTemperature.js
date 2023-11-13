@@ -71,7 +71,7 @@ function actualizar(){
 
             //modal aviso
             const parsedTemperature = parseFloat(temperature);
-            if(parsedTemperature > 20 || parsedTemperature < 0){
+            if(parsedTemperature > 28 || parsedTemperature < 0){
                 mostrarModal();
             }else{
                 console.log("No se muestra modal...")
