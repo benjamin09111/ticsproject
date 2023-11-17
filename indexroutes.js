@@ -244,25 +244,6 @@ router.post("/temperatureget", async (req, res) => {
     await profile.save();
 });
 
-router.get("/usuario", authenticateToken, async (req, res) => {
-    const token = req.headers['token'];
-
-    const decoded = jwt.verify(token, SECRET);
-        
-    const user = await User.findOne({ _id: decoded.id });
-
-        if (!user) {
-            res.status(404).json({ success: false, message: "e" });
-        }else{
-            res.status(200).json({
-            name: user.name,
-            email: user.email,
-            dinero: user.myMoney,
-            card: user.card,
-            });
-        }
-});
-
 router.post("/usuario", async (req, res) => {
     const { name, email, password, did } = req.body;
 
