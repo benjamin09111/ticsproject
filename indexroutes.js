@@ -332,6 +332,7 @@ router.post("/ingresar", async (req, res) => {
             .status(404)
             .json({ sucess: "false", message: "no existe el usuario" });
     }
+    const nuevo = emailUser.nuevo;
 
     const passwordMatch = await emailUser.matchPassword(password);
 
@@ -347,7 +348,7 @@ router.post("/ingresar", async (req, res) => {
 
     return res
         .status(200)
-        .json({ success: "true", header: "token", token: token, nuevo: emailUser.nuevo });
+        .json({ success: "true", header: "token", token: token, nuevo: nuevo });
 });
 
 module.exports = router;
