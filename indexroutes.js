@@ -314,7 +314,7 @@ router.post("/fill", async (req, res) => {
         profile.dosis[0] = d3;
     }
 
-    profile.nuevo = false;
+    profile.nuevo = "f";
 
     await profile.save();
     return res.status(200).json({ success: "true", message: "Informacion actualizada" });

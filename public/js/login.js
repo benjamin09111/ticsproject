@@ -34,9 +34,7 @@ loginForm.addEventListener('submit', (event) => {
 
                 const nuevo = data.nuevo;
 
-                console.log("Valor para nuevo: ",nuevo);
-
-                if(nuevo == "true" || nuevo == true){
+                if(nuevo == "true"){
                     window.location.href = '/rellenar';
                 }else{
                     window.location.href = '/home';
