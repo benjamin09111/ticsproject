@@ -27,17 +27,30 @@ document.addEventListener("DOMContentLoaded", function() {
     })
         .then(response => response.json())
         .then(data => {
-            const {temperatures} = data;
+            const {temperatures, dates} = data;
             //arreglo temperatures
             const temperaturesList = document.getElementById("temperaturesList");
-
             temperaturesList.innerHTML = "";
 
-            // Recorrer el arreglo de temperaturas y agregar cada temperatura como un elemento de lista
             temperatures.forEach(temperature => {
-                const listItem = document.createElement("li");
-                listItem.textContent = temperature;
-                temperaturesList.appendChild(listItem);
+                let i = 0;
+                const containerDiv = document.createElement("div");
+                containerDiv.style.display = "flex";
+                containerDiv.style.justifyContent = "space-between";
+
+                const div = document.createElement("div");
+                div.style.display = "inline-block";
+                div.textContent = temperature;
+                containerDiv.appendChild(div);
+
+                const listItem = document.createElement("div");
+                listItem.style.display = "inline-block";
+                listItem.textContent = dates[i];
+                containerDiv.appendChild(listItem);
+
+
+                temperaturesList.appendChild(containerDiv);
+                i++;
             });
 
         })

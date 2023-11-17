@@ -16,18 +16,33 @@
 <body id="bdy">
     <nav class="nav">
         <a href="/home">Home</a>
+        <a href="/info">Información</a>
         <button class="titi" id="logoutbutton" type="submit">Logout</button>
     </nav>
 
     <main>
+      <h1 style="text-align: center;">DiabetesCare</h1>
         <div class="btn-container"><button class="getT" id="getTemperature" type="submit">Actualizar información del dispositivo</button></div>
+      <h2 style="text-align: center;">Estado de los espacios</h2>  
         <article class="buttons-container">
-            <article class="cont"><div class="l">Lot 1</div><p class="b" id="b1">VACIO</p></article>
-            <article class="cont"><div class="l">Lot 2</div><p class="b" id="b2">VACIO</p></article>
-            <article class="cont"><div class="l">Lot 3</div><p class="b" id="b3">VACIO</p></article>
-        </article>
+            <article class="cont">
+              <div class="l">Espacio 1</div>
+              <div>Estado: <p class="b" id="b1">VACIO</p></div>
+              <div>Dosis restante: <p class="b" id="d1"></p></div>
+            </article>
+            <article class="cont">
+              <div class="l">Espacio 2</div>
+              <div>Estado: <p class="b" id="b2">VACIO</p></div>
+              <div>Dosis restante: <p class="b" id="d2"></p></div>
+            </article>
+            <article class="cont">
+              <div class="l">Espacio 3</div>
+              <div>Estado: <p class="b" id="b3">VACIO</p></div>
+              <div>Dosis restante: <p class="b" id="d3"></p></div>
+            </article>
+            </article>
         <article class="temperature-container">
-                <div id="temperaturetext">25°C</div>
+              <label for="">Temperatura actual del dispositivo: </label><div id="temperaturetext">25°C</div>
         </article>
 
         <!-- modal -->
@@ -41,18 +56,20 @@
         <!-- modal -->
 
         <article class="historial-container">
-            <div>Historial de temperaturas</div>
-            <div><a href="/home"></a></div>
-        </article>
+            <h2>Historial</h2>
+        <p style="text-align: center;">Se muestran los registros de temperatura relevantes, además del horario.</p>
+        <div style="display: flex; gap: 2rem;"><label for="">Actualizar historial temperaturas</label><a href="/home"></a></div>
+      </article>
         <section class="list-container">
-            <ul id="temperaturesList">
-                <!-- agrego con JS: mejor una tabla=? -->
-            </ul>
+            <div id="temperaturesList" style="display: flex; flex-direction: column; gap: 2rem; justify-content: center; align-items: center; font-size: 2.5rem;">
+              <!-- agregado con JS -->
+            </div>
         </section>
     </main>
     
     <script src="./js/getTemperature.js"></script>
     <script src="./js/getTemperatures.js"></script>
+    <script src="./js/rellenar.js"></script>
     <script src="./js/salir.js"></script>
 
     <script>
@@ -61,7 +78,7 @@
       const modal = document.getElementById("cuidadoModal");
       const cambiarcolor = document.getElementById("temperaturetext");
 
-      cambiarcolor.style.color = "black";
+      cambiarcolor.style.textDecoration = "true";
       modalBg.style.display = "none";
       modal.style.display = "none";
     }

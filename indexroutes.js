@@ -15,7 +15,41 @@ router.use(express.json({}));
 router.use(express.static("public"))
 router.use(bodyParser.json());
 
-//podemos unir luego para siempre tener visualizado el arreglo y la temperatura actual.
+/*
+FUNCIONES A AGREGAR
+
+- En caso de detectar cambio de un botón, enviar confirmación !
+- Al sobrepasar temperatura, automaticamente lanzar un aviso, igual que el cambio de botón 
+- Ingresar primeramente al iniciar sesión: atributo "nuevo: bool" para inscribir información !
+- Batería baja 
+- Agregar gráfico de temperatura en vez de historial, o hacer una tabla más bonita ! READY
+- Alarma si es que el estado del boton no ha cambiado !
+- Permitir ver cuantas dosis le quedan según lo que toma por cada una, matematica ! 
+*/
+
+router.get("/obtain", async(req,res)=>{
+    const token = req.headers['token'];
+
+    const decoded = jwt.verify(token, SECRET);
+        
+    const user = await User.findOne({ _id: decoded.id });
+
+    if(!user){
+        return res.status(400).json({ success: "false", message: "Usuario no encontrado" });
+    }
+    //obtener did del usuario
+    const emailuser = user.email;
+    //buscar temperature del usuario asociado al perfil
+    const profile = await Profile.findOne({user: emailuser});
+
+    if(!profile){
+        return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
+    }
+
+    //retornar la temperature y botones del perfil asociado
+    res.status(200).json({nuevo: profile.nuevo});
+
+});
 
 //get para obtener la temperatura del usuario actual
 router.get("/gettemperature", async(req,res)=>{
@@ -62,9 +96,57 @@ router.get("/gettemperatures", async(req,res)=>{
     }
 
     //retornar el array de temperature del perfil asociado
-    res.status(200).json({temperatures: profile.temperatures});
+    res.status(200).json({temperatures: profile.temperatures, dates: profile.date});
 
 });
+
+//
+router.post("/begin", async(req,res)=>{
+    const {buttonState1, buttonState2, buttonState3, max1, max2, max3, d1, d2, d3} = req.body;
+
+    if(!buttonState1 || !buttonState2 || !buttonState3 || !max1 || !max2 || !max3 || !d1 || !d2 || !d3){
+        console.log("Fallo. No llego todo.");
+        return null;
+    }
+
+     //guardar en base de datos
+     const profile = await Profile.findOne({did: did});
+
+     if(!profile){
+         console.log("Falla. Perfil no encontrado.");
+         return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+     }
+
+     if(buttonState1 != -1){
+        profile.buttons[0] = buttonState1;
+     }
+     if(buttonState2 != -1){
+        profile.buttons[1] = buttonState2;
+     }
+     if(buttonState3 != -1){
+        profile.buttons[2] = buttonState3;
+     }
+     if(max1 != -1){
+        profile.max[0] = max1;
+     }
+     if(max2 != -1){
+        profile.max[1] = max2;
+     }
+     if(max3 != -1){
+        profile.max[2] = max3;
+     }
+     if(d1 != -1){
+        profile.dosis[0] = d1;
+     }
+     if(d2 != -1){
+        profile.dosis[1] = d2;
+     }
+     if(d3 != -1){
+        profile.dosis[2] = d3;
+     }
+
+     profile.save();
+})
 
 //app envía los botones y se actualiza el arreglo
 router.post("/buttonsget", async(req,res)=>{
@@ -75,8 +157,6 @@ router.post("/buttonsget", async(req,res)=>{
         console.log("Fallo. No llego algun boton.");
         return null;
     }
-    
-    console.log("Llegaron los botones!!!");
 
     //guardar en base de datos
     const profile = await Profile.findOne({did: did});
@@ -106,8 +186,6 @@ router.post("/temperatureget", async (req, res) => {
         return null;
     }
 
-    console.log("Llegaron")
-
     //guardar en base de datos
     const profile = await Profile.findOne({did: did});
 
@@ -121,10 +199,9 @@ router.post("/temperatureget", async (req, res) => {
     //solo se agrega al historial si es diferente a lo ultimo leído
     if(profile.temperatures[0] != temperature){
         profile.temperatures.unshift(temperature);
+        profile.date.unshift(Date.now());
     }
-
     profile.save();
-    console.log("Todo correcto. Ha llegado la temperatura y perfil: ",temperature," ", did);
 });
 
 router.get("/usuario", authenticateToken, async (req, res) => {
@@ -152,8 +229,6 @@ router.post("/usuario", async (req, res) => {
     if (!name || !email || !password || !did) {
         return res.status(400).json({ success: "false", message: "inc" });
     }
-
-    console.log(did)
 
     const emailUser = await User.findOne({ email: email });
     if (emailUser) {

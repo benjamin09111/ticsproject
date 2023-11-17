@@ -29,4 +29,16 @@ router.get("/home", authenticateToken, (req, res) => {
     res.sendFile(filePath);
 });
 
+router.get("/rellenar", authenticateToken, (req, res) => {
+    const filePath = path.resolve(__dirname, 'public', 'rellenar.html');
+    res.sendFile(filePath);
+});
+
+router.get("/info", authenticateToken, (req, res) => {
+    const filePath = path.resolve(__dirname, 'public', 'info.html');
+    res.sendFile(filePath);
+});
+
+
+
 module.exports = router;

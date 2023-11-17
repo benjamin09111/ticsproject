@@ -6,7 +6,7 @@ function mostrarModal() {
     cambiarcolor.style.color = "red";
     modalBg.style.display = "block";
     modal.style.display = "block";
-  }
+}
 
 const gettemperaturebutton = document.getElementById("getTemperature");
 
@@ -47,18 +47,14 @@ function actualizar(){
 
             if(buttons[0] == 1){
                 bt1.textContent = "VACÍO";
-                bt2.style.color = "black";
             }else{
                 bt1.textContent = "OCUPADO";
-                bt1.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[1] == 1){
                 bt2.textContent = "VACÍO";
-                bt2.style.color = "black";
             }else{
                 bt2.textContent = "OCUPADO";
-                bt2.style.color = "rgb(26, 178, 79)";
             }
 
             if(buttons[2] == 1){
@@ -66,15 +62,12 @@ function actualizar(){
                 bt3.style.color = "black";
             }else{
                 bt3.textContent = "OCUPADO";
-                bt3.style.color = "rgb(26, 178, 79)";
             }
 
             //modal aviso
             const parsedTemperature = parseFloat(temperature);
-            if(parsedTemperature > 4 || parsedTemperature < 0){
+            if(parsedTemperature > 30 || parsedTemperature < 0){
                 mostrarModal();
-            }else{
-                console.log("No se muestra modal...")
             }
         })
     }
@@ -88,4 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 gettemperaturebutton.addEventListener("click", function(event) {
     actualizar();
 });
+
+//realizar cada 4 seg
+setInterval(actualizar, 4000);
 

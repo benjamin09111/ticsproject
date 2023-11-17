@@ -13,52 +13,47 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-    <div>
-    <div>
-    </div>
-    <main>
 
         <form id="lgn" action="/usuario" method="POST">
             <section>
+                <h1 style="font-size: 4.5rem;">DiabetesCare</h1>
             </section>
 
             <div style="display: flex; justify-content: left; flex-direction: column;">
                 <div>
                     <label class="lbl">Nombre</label>
-                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="text" name="name" placeholder="Tu nombre" required>
                 </div>
     
                 <div>
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Tu correo" required>
                 </div>
     
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password" placeholder="Your password" required>
+                    <input type="password" name="password" placeholder="Tu contraseña" required>
                 </div>
                 <div class="input-container">
                     <label>Repeat password</label>
-                    <input type="password" name="confirm_password" placeholder="Repeat your password" required>
+                    <input type="password" name="confirm_password" placeholder="Repite tu contraseña" required>
                 </div>
 
                 <div>
                     <label>ID del dispositivo</label>
-                    <input type="number" name="did" placeholder="Your hardware ID" required>
+                    <input type="number" name="did" placeholder="El ID único del dispositivo" required>
                 </div>
             </div>
             
-            <button type="submit">Sign up</button>
+            <button type="submit">Registrarse</button>
 
             <div>
-                <p>Already a member? <a href="/login">Sign in</a></p>
+                <p>Ya tienes una cuenta? <a href="/login">Ingresa</a></p>
             </div>
 
         </form>
         <div id="error-container" style="display: flex; justify-content: center;  color: red; margin-bottom: 1rem; font-size: 2rem;"></div>
-</main>
-</div>
-<script src="./js/register.js">
-</script>
+
+<script src="./js/register.js"></script>
 </body>
 </html>

@@ -3,6 +3,18 @@ const bcrypt = require('bcrypt');
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
+    max: {
+        type: [Number],
+        default: [-1,-1,-1]
+    },
+    dosis: {
+        type: [Number],
+        default: [-1,-1,-1]
+    },
+    nuevo: {
+        type: Boolean,
+        default: true
+    },
     user: {
         type: String,
         required: true,
@@ -23,7 +35,11 @@ const userSchema = new mongoose.Schema({
     },
     buttons : {
         type: [Number],
-        default: [0,0,0]
+        default: [-1,-1,-1]
+    },
+    date: {
+        type: [Date],
+        default: [Date.now]
     }
 },{
     timestamps: true

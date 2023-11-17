@@ -40,7 +40,8 @@ h2 {
 /* Estilo para los campos de entrada de texto */
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
     outline: 1px solid rgb(26, 178, 79); /* Borde verde médico */
     border-radius: 5px;
     padding: 10px;
