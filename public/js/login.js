@@ -31,7 +31,14 @@ loginForm.addEventListener('submit', (event) => {
             if (data.success === 'true') {
                 // Almacenar el token en localStorage
                 document.cookie = `token=${data.token}; expires=${getCookieExpirationDate()}; path=/`;
-                window.location.href = '/home';
+
+                const nuevo = data.nuevo;
+
+                if(nuevo == true){
+                    window.location.href = '/rellenar';
+                }else{
+                    window.location.href = '/home';
+                }
             } else {
                 if(data.message == "inc"){
                     const n1 = document.createElement('b');
@@ -63,6 +70,6 @@ loginForm.addEventListener('submit', (event) => {
         })
         //dejar otro error naturaleza
         .catch(error => {
-            window.location.href = '/error2';
+            window.location.href = '/fallo';
         });
 });

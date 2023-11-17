@@ -33,36 +33,11 @@ loginForm.addEventListener('submit', (event) => {
                 document.cookie = `token=${data.token}; expires=${getCookieExpirationDate()}; path=/`;
                 window.location.href = '/home';
             } else {
-                if(data.message == "inc"){
-                    const n1 = document.createElement('b');
-        
-                    n1.textContent = "No ha ingresado lo correcto.";
-                    
-                    contenedor.appendChild(n1);
-                }
-
-                else if(data.message == "no existe el usuario"){
-                    const n1 = document.createElement('b');
-        
-                    n1.textContent = "El usuario ingresado no existe.";
-                    
-                    contenedor.appendChild(n1);
-
-                }
-
-                else if(data.error == "contraseña incorrecta"){
-                    const n2 = document.createElement('b');
-        
-                    n2.textContent = "La contraseña ingresada no es correcta.";
-        
-                    contenedor.appendChild(n2);
-
-                }
-
+                windows.location.href = '/fallo';
             }
         })
         //dejar otro error naturaleza
         .catch(error => {
-            window.location.href = '/error2';
+            window.location.href = '/fallo';
         });
 });

@@ -145,7 +145,7 @@ router.post("/begin", async(req,res)=>{
         profile.dosis[2] = d3;
      }
 
-     profile.save();
+    await profile.save();
 })
 
 //app envía los botones y se actualiza el arreglo
@@ -169,7 +169,7 @@ router.post("/buttonsget", async(req,res)=>{
     profile.buttons[0] = parseFloat(buttonState1);
     profile.buttons[1]= parseFloat(buttonState2);
     profile.buttons[2] = parseFloat(buttonState3);
-    profile.save();
+    await profile.save();
 
 });
 
@@ -201,7 +201,7 @@ router.post("/temperatureget", async (req, res) => {
         profile.temperatures.unshift(temperature);
         profile.date.unshift(Date.now());
     }
-    profile.save();
+    await profile.save();
 });
 
 router.get("/usuario", authenticateToken, async (req, res) => {
@@ -251,6 +251,51 @@ router.post("/usuario", async (req, res) => {
     }
 });
 
+router.post("/fill", async (req, res) => {
+    const {espacio1, espacio2, espacio3, max1, max2, max3, d1, d2, d3} = req.body;
+    did = 5;
+
+    const profile = await Profile.findOne({did: did});
+
+    if(!profile){
+        console.log("Falla. Perfil no encontrado.");
+        return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+    }
+
+    if(espacio1){
+        profile.buttons[0] = 1;
+    }
+    if(espacio2){
+        profile.buttons[1] = 1;
+    }
+    if(espacio3){
+        profile.buttons[2] = 1;
+    }
+    if(max1 && max1 > 0){
+        profile.max[0] = max1;
+    }
+    if(max2 && max2 > 0){
+        profile.max[1] = max2;
+    }
+    if(max3 && max3 > 0){
+        profile.max[2] = max3;
+    }
+    if(d1  && d1 > 0){
+        profile.dosis[0] = d1;
+    }
+    if(d2  && d2 > 0){
+        profile.dosis[0] = d2;
+    }
+    if(d3  && d3 > 0){
+        profile.dosis[0] = d3;
+    }
+
+    profile.nuevo = false;
+
+    await profile.save();
+    return res.status(200).json({ success: "true", message: "Informacion actualizada" });
+});
+
 router.post("/ingresar", async (req, res) => {
     const { email, password } = req.body;
 
@@ -278,7 +323,7 @@ router.post("/ingresar", async (req, res) => {
 
     return res
         .status(200)
-        .json({ success: "true", header: "token", token: token });
+        .json({ success: "true", header: "token", token: token, nuevo: emailUser.nuevo });
 });
 
 module.exports = router;

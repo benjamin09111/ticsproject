@@ -71,7 +71,7 @@ signupForm.addEventListener('submit', (event) => {
         })
         .catch(error => {
             // Manejar errores de conexión o de otra naturaleza
-            window.location.href = '/ops';
+            window.location.href = '/fallo';
         });
     }
     

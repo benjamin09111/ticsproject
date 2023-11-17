@@ -59,7 +59,6 @@ function actualizar(){
 
             if(buttons[2] == 1){
                 bt3.textContent = "VACIO";
-                bt3.style.color = "black";
             }else{
                 bt3.textContent = "OCUPADO";
             }

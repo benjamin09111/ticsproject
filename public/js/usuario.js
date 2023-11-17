@@ -46,7 +46,7 @@ function obtenerDatosUsuario() {
         })
         .catch(error => {
             // Manejar errores de conexión o de otra naturaleza
-            window.location.href = '/ops';
+            window.location.href = '/fallo';
         });
     }
 

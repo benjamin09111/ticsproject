@@ -5,11 +5,11 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     max: {
         type: [Number],
-        default: [-1,-1,-1]
+        default: [0,0,0]
     },
     dosis: {
         type: [Number],
-        default: [-1,-1,-1]
+        default: [0,0,0]
     },
     nuevo: {
         type: Boolean,
@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
     },
     buttons : {
         type: [Number],
-        default: [-1,-1,-1]
+        default: [0,0,0]
     },
     date: {
         type: [Date],

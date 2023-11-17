@@ -1,41 +1,28 @@
-function verificar(){
-    const cookieString = document.cookie;
-    const cookies = cookieString.split('; ');
+const modificar1 = document.getElementById("btnm1");
+const modificar2 = document.getElementById("btnm2");
+const modificar3 = document.getElementById("btnm3");
 
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].split('=');
-        const cookieName = cookie[0];
-        const cookieValue = cookie[1];
+function modificarFunction1(){
 
-        if (cookieName === 'token') {
-            token = cookieValue;
-            break;
-        }
-    }
-
-    if(token == null || !token){
-        window.location.href = "/";
-    }else{
-        fetch('https://ticsproject.onrender.com/obtain', {
-        method: 'GET',
-        headers: {
-            'token': token,
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data =>{
-            const {nuevo} = data;
-            return nuevo;
-        })
-    }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var resultado = verificar();
+function modificarFunction2(){
+    
+}
 
-    if(resultado){
-        
-    }
-        
- });
+function modificarFunction3(){
+    
+}
+
+
+modificar1.addEventListener("click", function(event) {
+    modificarFunction1();
+});
+
+modificar2.addEventListener("click", function(event) {
+    modificarFunction2();
+});
+
+modificar3.addEventListener("click", function(event) {
+    modificarFunction3();
+});
