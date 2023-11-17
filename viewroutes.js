@@ -37,6 +37,7 @@ router.get("/rellenar", authenticateToken, (req, res) => {
 router.get("/fallo", authenticateToken, (req, res) => {
     const filePath = path.resolve(__dirname, 'public', 'fallo.html');
     res.sendFile(filePath);
+    //
 });
 
 router.get("/info", authenticateToken, (req, res) => {
