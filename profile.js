@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
+    actuales: {
+        type: [Number],
+        default: [0,0,0]
+    },
     max: {
         type: [Number],
         default: [0,0,0]

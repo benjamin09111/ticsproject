@@ -28,23 +28,29 @@
     </article>
         <h2 style="text-align: center;">Estado de los espacios</h2>  
         <article class="buttons-container">
-            <article class="cont">
+            <article id="container1" class="cont">
               <div class="l">Espacio 1</div>
               <div>Estado: <p class="b" id="b1">VACIO</p></div>
-              <div>Dosis restante: <p class="b" id="d1"></p></div>
-              <div><button class="btnmodificar" id="btnm1">Modificar</button></div>
+              <div>Dosis máxima: <p class="b" id="max1"></p></div>
+              <div>Dosis actual: <p class="b" id="actuales1"></p></div>
+              <div>Dosis a tomar: <p class="b" id="d1"></p></div>
+              <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
             </article>
-            <article class="cont">
+            <article id="container2"  class="cont">
               <div class="l">Espacio 2</div>
               <div>Estado: <p class="b" id="b2">VACIO</p></div>
-              <div>Dosis restante: <p class="b" id="d2"></p></div>
-              <div><button class="btnmodificar" id="btnm2">Modificar</button></div>
+              <div>Dosis máxima: <p class="b" id="max2"></p></div>
+              <div>Dosis actual: <p class="b" id="actuales2"></p></div>
+              <div>Dosis a tomar: <p class="b" id="d2"></p></div>
+              <div><a href="/rellenar" class="btnmodificar" id="btnm2">Modificar</a></div>
             </article>
-            <article class="cont">
+            <article id="containere3" class="cont">
               <div class="l">Espacio 3</div>
               <div>Estado: <p class="b" id="b3">VACIO</p></div>
-              <div>Dosis restante: <p class="b" id="d3"></p></div>
-              <div><button class="btnmodificar" id="btnm1">Modificar</button></div>
+              <div>Dosis máxima: <p class="b" id="max3"></p></div>
+              <div>Dosis actual: <p class="b" id="actuales3"></p></div>
+              <div>Dosis a tomar: <p class="b" id="d3"></p></div>
+              <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
             </article>
             </article>
 
@@ -70,14 +76,13 @@
         </section>
     </main>
     
-    <script src="./js/actualizar.js"></script>
+    <script src="./js/alerta.js"></script>
     <script src="./js/getTemperature.js"></script>
     <script src="./js/getTemperatures.js"></script>
-    <script src="./js/rellenar.js"></script>
     <script src="./js/salir.js"></script>
 
     <script>
-    function cerrarModal() {
+    function cerrarModal(){
       const modalBg = document.getElementById("modalBg");
       const modal = document.getElementById("cuidadoModal");
       const cambiarcolor = document.getElementById("temperaturetext");
@@ -86,6 +91,9 @@
       modalBg.style.display = "none";
       modal.style.display = "none";
     }
+
+
+
     </script>
 
 <style>

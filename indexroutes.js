@@ -72,7 +72,7 @@ router.get("/gettemperature", async(req,res)=>{
     }
 
     //retornar la temperature y botones del perfil asociado
-    res.status(200).json({temperature: profile.temperature, buttons: profile.buttons});
+    res.status(200).json({temperature: profile.temperature, buttons: profile.buttons, max: profile.max, dosis: profile.dosis, actuales: profile.actuales});
 
 });
 
@@ -146,6 +146,46 @@ router.post("/begin", async(req,res)=>{
      }
 
     await profile.save();
+})
+
+router.post("/dosisalert", async(req,res)=>{
+    const token = req.headers['token'];
+
+    const decoded = jwt.verify(token, SECRET);
+        
+    const user = await User.findOne({ _id: decoded.id });
+
+    if(!user){
+        return res.status(400).json({ success: "false", message: "Usuario no encontrado" });
+    }
+    //obtener did del usuario
+    const emailuser = user.email;
+    //buscar temperature del usuario asociado al perfil
+    const profile = await Profile.findOne({user: emailuser});
+
+    if(!profile){
+        return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
+    }
+
+    const value1 = parseFloat(profile.actuales[0]) - parseFloat(profile.dosis[0]);
+    const value2 = parseFloat(profile.actuales[1]) - parseFloat(profile.dosis[1]);
+    const value3 = parseFloat(profile.actuales[2]) - parseFloat(profile.dosis[2]);
+
+    var resultado = "bien";
+
+    if(value1 < profile.dosis[0]){
+        resultado = "alerta";
+    }
+    if(value2 < profile.dosis[1]){
+        resultado = "alerta";
+    }
+    if(value3 < profile.dosis[2]){
+        resultado = "alerta";
+    }
+
+    //retornar la temperature y botones del perfil asociado
+    res.status(200).json({resultado: resultado});
+
 })
 
 //app envía los botones y se actualiza el arreglo
@@ -273,12 +313,15 @@ router.post("/fill", async (req, res) => {
     }
     if(max1 && max1 > 0){
         profile.max[0] = max1;
+        profile.actuales[0] = max1;
     }
     if(max2 && max2 > 0){
         profile.max[1] = max2;
+        profile.actuales[1] = max2;
     }
     if(max3 && max3 > 0){
         profile.max[2] = max3;
+        profile.actuales[2] = max3;
     }
     if(d1  && d1 > 0){
         profile.dosis[0] = d1;
