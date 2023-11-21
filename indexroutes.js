@@ -338,8 +338,8 @@ router.post("/fill", async (req, res) => {
         profile.dosis[2] = d3;
     }
 
-    const variable = profile.nuevo;
-    profile.nuevo = variable + 1;
+    const variable = profile.cont;
+    profile.cont = variable + 1;
 
     await profile.save();
     return res.status(200).json({ success: "true", message: "Informacion actualizada" });
