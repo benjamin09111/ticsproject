@@ -104,52 +104,6 @@
 
 
     <script>//fetch
-        function rellenarFaltante(){
-            fetch('https://ticsproject.onrender.com/gettemperature', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            })
-                .then(response => response.json())
-                .then(data =>{
-                    const {dosis, actuales} = data;
-        
-                    const container = document.getElementById("alertas");
-                    const value1 = parseFloat(profile.actuales[0]) - parseFloat(profile.dosis[0]);
-                    const value2 = parseFloat(profile.actuales[1]) - parseFloat(profile.dosis[1]);
-                    const value3 = parseFloat(profile.actuales[2]) - parseFloat(profile.dosis[2]);
-        
-                    var resultado = "bien";
-        
-                    const div1 = document.createElement("div");
-                    div1.style.color = "red";
-        
-                    const div2 = document.createElement("div");
-                    div2.style.color = "red";
-                    
-                    const div3 = document.createElement("div");
-                    div3.style.color = "red";
-        
-            if(value1 < profile.dosis[0]){
-                div1.textContent = "Dosis del espacio 1 acabada.";
-            }
-            if(value2 < profile.dosis[1]){
-                div2.textContent = "Dosis del espacio 2 acabada.";
-            }
-            if(value3 < profile.dosis[2]){
-                div3.textContent = "Dosis del espacio 3 acabada.";
-            }
-                container.appendChild(div1);
-                container.appendChild(div2);
-                container.appendChild(div3);
-                })
-        }
-        
         //logica para agregar boxes
         document.addEventListener("DOMContentLoaded", function() {
             const checkbox1 = document.getElementById("c1");

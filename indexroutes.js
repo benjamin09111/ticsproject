@@ -332,10 +332,10 @@ router.post("/fill", async (req, res) => {
         profile.dosis[0] = d1;
     }
     if(d2  && d2 > 0){
-        profile.dosis[0] = d2;
+        profile.dosis[1] = d2;
     }
     if(d3  && d3 > 0){
-        profile.dosis[0] = d3;
+        profile.dosis[2] = d3;
     }
 
     profile.nuevo = profile.nuevo+1;
