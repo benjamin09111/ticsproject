@@ -15,9 +15,9 @@ const userSchema = new mongoose.Schema({
         type: [Number],
         default: [0,0,0]
     },
-    nuevo: {
-        type: String,
-        default: "true"
+    cont: {
+        type: Number,
+        default: 0
     },
     user: {
         type: String,

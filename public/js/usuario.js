@@ -29,7 +29,7 @@ function obtenerDatosUsuario() {
         .then(data => {
 
             if(data.message == "e"){
-                window.location.href = "/errortoken";
+                window.location.href = "/fallo";
             }else{
                 const { name, email, dinero } = data;
 
