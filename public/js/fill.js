@@ -3,21 +3,55 @@ const loginForm = document.getElementById('lgn');
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Evita que se envíe el formulario de manera convencional
 
-    const espacio1 = document.querySelector('input[name="espacio1"]');
-    const espacio2 = document.querySelector('input[name="espacio2"]');
-    const espacio3 = document.querySelector('input[name="espacio3"]');
+    var espacio1 = document.querySelector('input[name="espacio1"]');
+    var espacio2 = document.querySelector('input[name="espacio2"]');
+    var espacio3 = document.querySelector('input[name="espacio3"]');
 
     // Para los elementos relacionados con espacio 1
-const max1 = document.querySelector('input[name="max1"]');
-const d1 = document.querySelector('input[name="d1"]');
+var max1 = document.querySelector('input[name="max1"]');
+var d1 = document.querySelector('input[name="d1"]');
 
 // Para los elementos relacionados con espacio 2
-const max2 = document.querySelector('input[name="max2"]');
-const d2 = document.querySelector('input[name="d2"]');
+var max2 = document.querySelector('input[name="max2"]');
+var d2 = document.querySelector('input[name="d2"]');
 
 // Para los elementos relacionados con espacio 3
-const max3 = document.querySelector('input[name="max3"]');
-const d3 = document.querySelector('input[name="d3"]');
+var max3 = document.querySelector('input[name="max3"]');
+var d3 = document.querySelector('input[name="d3"]');
+
+if(!espacio1){
+    espacio1 = 0;
+}
+if(!espacio2){
+    espacio2 = 0;
+}
+if(!espacio3){
+    espacio3 = 0;
+}
+
+if(!max1){
+    max1 = 0;
+}
+
+if(!max2){
+    max2 = 0;
+}
+
+if(!max3){
+    max3 = 0;
+}
+
+if(!d1){
+    d1 = 0;
+}
+
+if(!d2){
+    d2 = 0;
+}
+
+if(!d3){
+    d3 = 0;
+}
 
     fetch('https://ticsproject.onrender.com/fill', {
         method: 'POST',
