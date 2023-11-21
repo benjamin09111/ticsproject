@@ -76,6 +76,30 @@ router.get("/gettemperature", async(req,res)=>{
 
 });
 
+router.get("/getcont", async(req,res)=>{
+    const token = req.headers['token'];
+
+    const decoded = jwt.verify(token, SECRET);
+        
+    const user = await User.findOne({ _id: decoded.id });
+
+    if(!user){
+        return res.status(400).json({ success: "false", message: "Usuario no encontrado" });
+    }
+    //obtener did del usuario
+    const emailuser = user.email;
+    //buscar temperature del usuario asociado al perfil
+    const profile = await Profile.findOne({user: emailuser});
+
+    if(!profile){
+        return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
+    }
+
+    //retornar el array de temperature del perfil asociado
+    res.status(200).json({cont: profile.cont});
+
+});
+
 router.get("/gettemperatures", async(req,res)=>{
     const token = req.headers['token'];
 

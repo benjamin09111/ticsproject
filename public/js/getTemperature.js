@@ -42,6 +42,10 @@ function actualizar(){
             const text = document.getElementById("temperaturetext")
             text.textContent = temperature;
 
+            const uso1 = document.getElementById("uso1");
+            const uso2 = document.getElementById("uso2");
+            const uso3 = document.getElementById("uso3");
+
             const actuales1 = document.getElementById("actuales1");
             const actuales2 = document.getElementById("actuales2");
             const actuales3 = document.getElementById("actuales3");
@@ -65,6 +69,24 @@ function actualizar(){
             max1.textContent = max[0].toString();
             max2.textContent = max[1].toString();
             max3.textContent = max[2].toString();
+
+            if(max[0] > 0){
+                uso1.textContent = "SÍ";
+            }else{
+                uso1.textContent = "NO";
+            }
+
+            if(max[1] > 0){
+                uso2.textContent = "SÍ";
+            }else{
+                uso2.textContent = "NO";
+            }
+
+            if(max[2] > 0){
+                uso3.textContent = "SÍ";
+            }else{
+                uso3.textContent = "NO";
+            }
 
             d1.textContent = dosis[0].toString();
             d2.textContent = dosis[0].toString();
@@ -97,8 +119,46 @@ function actualizar(){
     }
 }
 
+function verificar(){
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/getcont', {
+        method: 'GET',
+        headers: {
+            'token': token,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            const {cont} = data;
+
+            if(cont==0){
+                window.location.href = '/rellenar';
+            }
+
+        })
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
-   actualizar();
+   verificar();
 });
 
 //AJUSTAR DESPUES LA DIRECCION DE LA PAGINA, NO LOCALHOST
