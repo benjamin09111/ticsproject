@@ -99,107 +99,108 @@
 
     <div id="error-container" style="display: flex; justify-content: center;  color: red; margin-bottom: 1rem; font-size: 2rem;"></div>
     
-    <script>
-//fetch
-function rellenarFaltante(){
-    fetch('https://ticsproject.onrender.com/gettemperature', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    })
-        .then(response => response.json())
-        .then(data =>{
-            const {dosis, actuales} = data;
 
-            const container = document.getElementById("alertas");
-            const value1 = parseFloat(profile.actuales[0]) - parseFloat(profile.dosis[0]);
-            const value2 = parseFloat(profile.actuales[1]) - parseFloat(profile.dosis[1]);
-            const value3 = parseFloat(profile.actuales[2]) - parseFloat(profile.dosis[2]);
-
-            var resultado = "bien";
-
-            const div1 = document.createElement("div");
-            div1.style.color = "red";
-
-            const div2 = document.createElement("div");
-            div2.style.color = "red";
-            
-            const div3 = document.createElement("div");
-            div3.style.color = "red";
-
-    if(value1 < profile.dosis[0]){
-        div1.textContent = "Dosis del espacio 1 acabada.";
-    }
-    if(value2 < profile.dosis[1]){
-        div2.textContent = "Dosis del espacio 2 acabada.";
-    }
-    if(value3 < profile.dosis[2]){
-        div3.textContent = "Dosis del espacio 3 acabada.";
-    }
-        container.appendChild(div1);
-        container.appendChild(div2);
-        container.appendChild(div3);
-        })
-}
-
-//logica para agregar boxes
-document.addEventListener("DOMContentLoaded", function() {
-    const checkbox1 = document.getElementById("c1");
-    const checkbox2 = document.getElementById("c2");
-    const checkbox3 = document.getElementById("c3");
-    
-    const max1 = document.getElementById("1");
-    const max2 = document.getElementById("2");
-    const max3 = document.getElementById("3");
-
-    const d1 = document.getElementById("11");
-    const d2 = document.getElementById("22");
-    const d3 = document.getElementById("33");
-
-    checkbox1.addEventListener("change", function() {
-        var value1 = checkbox1.checked;
-
-        if(value1){
-            d1.style.display = "block";
-            max1.style.display = "block";
-        }else{
-            d1.style.display = "none";
-            max1.style.display = "none";
-        }
-
-        
-    });
-    checkbox2.addEventListener("change", function() {
-        var value2 = checkbox2.checked;
-
-        if(value2){
-            d2.style.display = "block";
-            max2.style.display = "block";
-        }else{
-            d2.style.display = "none";
-            max2.style.display = "none";
-        }
-
-    });
-    checkbox3.addEventListener("change", function() {
-        var value3 = checkbox3.checked;
-
-        if(value3){
-            d3.style.display = "block";
-            max3.style.display = "block";
-        }else{
-            d3.style.display = "none";
-            max3.style.display = "none";
-        }
-
-    });
-});
-    </script>
     <script src="./js/fill.js"></script>
+
+
+    <script>//fetch
+        function rellenarFaltante(){
+            fetch('https://ticsproject.onrender.com/gettemperature', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+                .then(response => response.json())
+                .then(data =>{
+                    const {dosis, actuales} = data;
+        
+                    const container = document.getElementById("alertas");
+                    const value1 = parseFloat(profile.actuales[0]) - parseFloat(profile.dosis[0]);
+                    const value2 = parseFloat(profile.actuales[1]) - parseFloat(profile.dosis[1]);
+                    const value3 = parseFloat(profile.actuales[2]) - parseFloat(profile.dosis[2]);
+        
+                    var resultado = "bien";
+        
+                    const div1 = document.createElement("div");
+                    div1.style.color = "red";
+        
+                    const div2 = document.createElement("div");
+                    div2.style.color = "red";
+                    
+                    const div3 = document.createElement("div");
+                    div3.style.color = "red";
+        
+            if(value1 < profile.dosis[0]){
+                div1.textContent = "Dosis del espacio 1 acabada.";
+            }
+            if(value2 < profile.dosis[1]){
+                div2.textContent = "Dosis del espacio 2 acabada.";
+            }
+            if(value3 < profile.dosis[2]){
+                div3.textContent = "Dosis del espacio 3 acabada.";
+            }
+                container.appendChild(div1);
+                container.appendChild(div2);
+                container.appendChild(div3);
+                })
+        }
+        
+        //logica para agregar boxes
+        document.addEventListener("DOMContentLoaded", function() {
+            const checkbox1 = document.getElementById("c1");
+            const checkbox2 = document.getElementById("c2");
+            const checkbox3 = document.getElementById("c3");
+            
+            const max1 = document.getElementById("1");
+            const max2 = document.getElementById("2");
+            const max3 = document.getElementById("3");
+        
+            const d1 = document.getElementById("11");
+            const d2 = document.getElementById("22");
+            const d3 = document.getElementById("33");
+        
+            checkbox1.addEventListener("change", function() {
+                var value1 = checkbox1.checked;
+        
+                if(value1){
+                    d1.style.display = "block";
+                    max1.style.display = "block";
+                }else{
+                    d1.style.display = "none";
+                    max1.style.display = "none";
+                }
+        
+                
+            });
+            checkbox2.addEventListener("change", function() {
+                var value2 = checkbox2.checked;
+        
+                if(value2){
+                    d2.style.display = "block";
+                    max2.style.display = "block";
+                }else{
+                    d2.style.display = "none";
+                    max2.style.display = "none";
+                }
+        
+            });
+            checkbox3.addEventListener("change", function() {
+                var value3 = checkbox3.checked;
+        
+                if(value3){
+                    d3.style.display = "block";
+                    max3.style.display = "block";
+                }else{
+                    d3.style.display = "none";
+                    max3.style.display = "none";
+                }
+        
+            });
+        });</script>
 </body>
 </html>
