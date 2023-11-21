@@ -2,22 +2,30 @@ const loginForm = document.getElementById('lgn');
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault(); // Evita que se envíe el formulario de manera convencional
-    contenedor.textContent = "";
-    
-    alert("Presionado!");
 
-    const email = document.querySelector('input[name="email"]').value;
-    const password = document.querySelector('input[name="password"]').value;
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
 
-    fetch('https://ticsproject.onrender.com/fill', {
-        method: 'POST',
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/fill', {
+        method: 'GET',
         headers: {
+            'token': token,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
     })
         .then(response => response.json())
         .then(data => {
@@ -31,4 +39,5 @@ loginForm.addEventListener('submit', (event) => {
         .catch(error => {
             window.location.href = '/fallo';
         });
+    }
 });
