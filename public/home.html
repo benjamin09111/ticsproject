@@ -268,6 +268,10 @@ function restar3(){
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+   pasedTime();
+});
+
 function pasedTime() {
     const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
@@ -280,6 +284,8 @@ function pasedTime() {
     console.log("display: ", c1.style.display, " y texto: ", dis1.textContent)
 
     const xd = document.getElementById("lol");
+
+    xd.textContent = c1.style.display;
 
     if (c1.style.display == "block" && dis1.textContent == "VACIO") {
       xd.textContent = "JAJAJA";
