@@ -42,6 +42,10 @@ function actualizar(){
             const text = document.getElementById("temperaturetext")
             text.textContent = temperature;
 
+            const contenedor1 = document.getElementById("container1");
+            const contenedor2 = document.getElementById("container2");
+            const contenedor3 = document.getElementById("container3");
+
             const uso1 = document.getElementById("uso1");
             const uso2 = document.getElementById("uso2");
             const uso3 = document.getElementById("uso3");
@@ -70,22 +74,22 @@ function actualizar(){
             max2.textContent = max[1].toString();
             max3.textContent = max[2].toString();
 
-            if(max[0] > 0){
-                uso1.textContent = "SÍ";
+            if(max[0] <= 0){
+                contenedor1.style.display = "none";
             }else{
-                uso1.textContent = "NO";
+                contenedor1.style.display = "block";
             }
 
-            if(max[1] > 0){
-                uso2.textContent = "SÍ";
+            if(max[1] <= 0){
+                contenedor2.style.display = "none";
             }else{
-                uso2.textContent = "NO";
+                contenedor2.style.display = "block";
             }
 
-            if(max[2] > 0){
-                uso3.textContent = "SÍ";
+            if(max[2] <= 0){
+                contenedor3.style.display = "none";
             }else{
-                uso3.textContent = "NO";
+                contenedor3.style.display = "block";
             }
 
             d1.textContent = dosis[0].toString();
