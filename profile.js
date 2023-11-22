@@ -33,18 +33,20 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    temperatures : {
-        type: [Number],
-        default: []
-    },
+    temperatures: [{
+        value: {
+            type: Number,
+            required: true
+        },
+        date: {
+            type: String,
+            default: Date.now().toLocaleString()
+        }
+    }],
     buttons : {
         type: [Number],
         default: [0,0,0]
     },
-    date: {
-        type: [Date],
-        default: []
-    }
 },{
     timestamps: true
 });

@@ -33,25 +33,22 @@ document.addEventListener("DOMContentLoaded", function() {
             temperaturesList.innerHTML = "";
 
             temperatures.forEach(temperature => {
-                let i = 0;
                 const containerDiv = document.createElement("div");
-                containerDiv.style.display = "flex";
-                containerDiv.style.justifyContent = "space-between";
-
-                const div = document.createElement("div");
-                div.style.display = "inline-block";
-                div.textContent = temperature;
-                containerDiv.appendChild(div);
-
-                const listItem = document.createElement("div");
-                listItem.style.display = "inline-block";
-                listItem.textContent = dates[i];
-                containerDiv.appendChild(listItem);
-
-
+                containerDiv.classList.add("table-row"); // Añadir una clase para aplicar estilos si es necesario
+            
+                const valueCell = document.createElement("div");
+                valueCell.classList.add("table-cell");
+                valueCell.textContent = temperature.value;
+                containerDiv.appendChild(valueCell);
+            
+                const dateCell = document.createElement("div");
+                dateCell.classList.add("table-cell");
+                dateCell.textContent = new Date(temperature.date).toLocaleString(); // Formatear la fecha como desees
+                containerDiv.appendChild(dateCell);
+            
                 temperaturesList.appendChild(containerDiv);
-                i++;
             });
+            
 
         })
     }

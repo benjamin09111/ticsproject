@@ -92,9 +92,31 @@
         <div style="display: flex; gap: 2rem;"><label for="">Actualizar historial temperaturas</label><a href="/home"></a></div>
       </article>
         <section class="list-container">
-            <div id="temperaturesList" style="display: flex; flex-direction: column; gap: 2rem; justify-content: center; align-items: center; font-size: 2.5rem;">
-              <!-- agregado con JS -->
-            </div>
+          <div id="temperaturesList" class="table">
+            <!-- Aquí se añadirán las filas de temperatura -->
+        </div>        
+
+        <style>
+          .table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd; /* Añade un borde a la tabla */
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd; /* Borde entre filas */
+}
+
+.table-cell {
+    flex: 1; /* Ocupar espacio igual en ambas celdas */
+    text-align: center;
+}
+
+        </style>
+
         </section>
     </main>
     
