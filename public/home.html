@@ -35,7 +35,10 @@
               <div>Dosis máxima: <p class="b" id="max1"></p></div>
               <div>Dosis actual: <p class="b" id="actuales1"></p></div>
               <div>Dosis a tomar: <p class="b" id="d1"></p></div>
-              <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
+              <div>
+                <a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a>
+                <button class="btnmodificar" id="restar1" onclick="restar1()" style="border: none;">Restar una dosis</button>
+              </div>
             </article>
             <article id="container2"  class="cont">
               <div class="l">Espacio 2</div>
@@ -44,6 +47,7 @@
               <div>Dosis actual: <p class="b" id="actuales2"></p></div>
               <div>Dosis a tomar: <p class="b" id="d2"></p></div>
               <div><a href="/rellenar" class="btnmodificar" id="btnm2">Modificar</a></div>
+              <button class="btnmodificar" id="restar2" onclick="restar2()" style="border: none;">Restar una dosis</button>
             </article>
             <article id="container3" class="cont">
               <div class="l">Espacio 3</div>
@@ -52,11 +56,12 @@
               <div>Dosis actual: <p class="b" id="actuales3"></p></div>
               <div>Dosis a tomar: <p class="b" id="d3"></p></div>
               <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
+              <button class="btnmodificar" id="restar3" onclick="restar3()" style="border: none;">Restar una dosis</button>
             </article>
             </article>
       
         <div class="modal-bg" id="modalBg">a</div>    
-        <div class="emergente">
+        <div class="emergente" style="display: none;">
           <span class="close" onclick="cerrarModal()">&times;</span>
           Datos reestablecidos correctamente.
         </div>
@@ -100,7 +105,15 @@
       modal.style.display = "none";
     }
 
+    function restar1(){
 
+    }
+    function restar2(){
+
+    }
+    function restar3(){
+      
+    }
 
     </script>
 

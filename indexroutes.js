@@ -314,6 +314,63 @@ router.get("/reset", async (req, res) => {
     return res.status(200).json({ success: "true", message: "Reestablecido." });
 });
 
+router.get("/restar1", async (req, res) => {
+    did = 5;
+
+    const profile = await Profile.findOne({did: did});
+
+    if(!profile){
+        console.log("Falla. Perfil no encontrado.");
+        return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+    }
+
+    const actual = profile.actuales[0];
+    const dosis = profile.dosis[0];
+
+    profile.actuales[0] = actual - dosis;
+
+    await profile.save();
+    return res.status(200).json({ success: "true", message: "Reestablecido." });
+});
+
+router.get("/restar2", async (req, res) => {
+    did = 5;
+
+    const profile = await Profile.findOne({did: did});
+
+    if(!profile){
+        console.log("Falla. Perfil no encontrado.");
+        return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+    }
+
+    const actual = profile.actuales[1];
+    const dosis = profile.dosis[1];
+
+    profile.actuales[1] = actual - dosis;
+
+    await profile.save();
+    return res.status(200).json({ success: "true", message: "Reestablecido." });
+});
+
+router.get("/restar3", async (req, res) => {
+    did = 5;
+
+    const profile = await Profile.findOne({did: did});
+
+    if(!profile){
+        console.log("Falla. Perfil no encontrado.");
+        return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
+    }
+
+    const actual = profile.actuales[2];
+    const dosis = profile.dosis[2];
+
+    profile.actuales[2] = actual - dosis;
+
+    await profile.save();
+    return res.status(200).json({ success: "true", message: "Reestablecido." });
+});
+
 router.post("/fill", async (req, res) => {
     const {espacio1, espacio2, espacio3, max1, max2, max3, d1, d2, d3} = req.body;
     did = 5;
