@@ -272,7 +272,12 @@ document.addEventListener("DOMContentLoaded", function() {
    pasedTime();
 });
 
-function pasedTime() {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function pasedTime() {
+    const works = document.getElementById("a");
     const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
     const c3 = document.getElementById("container3");
@@ -281,24 +286,19 @@ function pasedTime() {
     const dis2 = document.getElementById("b2");
     const dis3 = document.getElementById("b3");
 
-    console.log("display: ", c1.style.display, " y texto: ", dis1.textContent)
-
-    const xd = document.getElementById("lol");
-
     if (getComputedStyle(c1).display == "block" && dis1.textContent == "VACIO") {
-      xd.textContent = "JAJAJA";
-        alert("it works!");
-        //lol
+        await sleep(5000);
+        works.textContent = "SE PUEDE!";
     }
 
     if (getComputedStyle(c2).display == "block" && dis2.textContent == "VACIO") {
-      xd.textContent = "JAJAJA";
-        alert("it works!");
+        await sleep(5000);
+        works.textContent = "SE PUEDE!";
     }
 
-    if (getComputedStyle(c3).display && dis3.textContent == "VACIO") {
-      xd.textContent = "JAJAJA";
-        alert("it works!");
+    if (getComputedStyle(c3).display == "block" && dis3.textContent == "VACIO") {
+        await sleep(5000);
+        works.textContent = "SE PUEDE!";
     }
 }
 
