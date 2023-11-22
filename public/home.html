@@ -64,6 +64,7 @@
             </article>
 
         <div class="modal-bg" id="modalBg"></div>
+
         <div class="emergente" style="display: none;" id="avisollenar">
           <span class="close" onclick="cerrarModal()">&times;</span>
           Se ha acabado la dosis. Por favor, rellenar e informar a la aplicación.
@@ -71,17 +72,17 @@
         </div>
 
         <div class="emergente" style="display: none;" id="espacio1aviso">
-          <span class="close" onclick="cerrarModal()">&times;</span>
+          <span class="close" onclick="cerrarModal1()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).
         </div>
 
         <div class="emergente" style="display: none;" id="espacio2aviso">
-          <span class="close" onclick="cerrarModal()">&times;</span>
+          <span class="close" onclick="cerrarModal2()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).
         </div>
 
         <div class="emergente" style="display: none;" id="espacio3aviso">
-          <span class="close" onclick="cerrarModal()">&times;</span>
+          <span class="close" onclick="cerrarModal3()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).
         </div>
 
@@ -345,6 +346,33 @@ function alerta3(){
   const av = document.getElementById("espacio3aviso");
   av.style.display = "block";
   fondo.style.display = "block";
+}
+
+function cerrarModal1(){
+  const modalBg = document.getElementById("modalBg");
+  const aviso = document.getElementById("espacio1aviso");
+
+  // Ocultar tanto el fondo oscuro como el modal
+  modalBg.style.display = "none";
+  aviso.style.display = "none";
+}
+
+function cerrarModal2(){
+  const modalBg = document.getElementById("modalBg");
+  const aviso = document.getElementById("espacio2aviso");
+
+  // Ocultar tanto el fondo oscuro como el modal
+  modalBg.style.display = "none";
+  aviso.style.display = "none";
+}
+
+function cerrarModal3(){
+  const modalBg = document.getElementById("modalBg");
+  const aviso = document.getElementById("espacio3aviso");
+
+  // Ocultar tanto el fondo oscuro como el modal
+  modalBg.style.display = "none";
+  aviso.style.display = "none";
 }
 
 function pasedTime() {
