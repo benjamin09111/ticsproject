@@ -2,7 +2,7 @@ function mostrarModal() {
     const modalBg = document.getElementById("modalBg");
     const modal = document.getElementById("cuidadoModal");
     const cambiarcolor = document.getElementById("temperaturetext");
-    
+
 
     cambiarcolor.style.color = "red";
     modalBg.style.display = "block";
@@ -71,14 +71,23 @@ function actualizar(){
             const a2 = document.getElementById("acabado2");
             const a3 = document.getElementById("acabado3");
 
-            if(actuales[0] == 0){
+            const fondo = document.getElementById("modalBg");
+            const aviso = document.getElementById("avisollenar");
+
+            if(actuales[0] == 0 && max[0] > 0){
                 a1.textContent = "¡ACABADO!";
+                fondo.style.display = "block";
+                aviso.style.display = "block";
             }
-            if(actuales[1] == 0){
+            if(actuales[1] == 0  && max[1] > 0){
                 a2.textContent = "¡ACABADO!";
+                fondo.style.display = "block";
+                aviso.style.display = "block";
             }
-            if(actuales[2] == 0){
+            if(actuales[2] == 0  && max[2] > 0){
                 a3.textContent = "¡ACABADO!";
+                fondo.style.display = "block";
+                aviso.style.display = "block";
             }
 
             max1.textContent = max[0].toString();
