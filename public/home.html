@@ -268,11 +268,7 @@ function restar3(){
     }
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function pasedTime() {
+function pasedTime() {
     const works = document.getElementById("lol");
     const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
@@ -283,18 +279,15 @@ async function pasedTime() {
     const dis3 = document.getElementById("b3");
 
     if (getComputedStyle(c1).display == "block" && dis1.textContent == "VACÍO") {
-        await sleep(5000);
-        works.textContent = "SE PUEDE!";
+        alert("1");
     }
 
     if (getComputedStyle(c2).display == "block" && dis2.textContent == "VACÍO") {
-        await sleep(5000);
-        works.textContent = "SE PUEDE!";
+        alert("2");
     }
 
     if (getComputedStyle(c3).display == "block" && dis3.textContent == "VACÍO") {
-        await sleep(5000);
-        works.textContent = "SE PUEDE!";
+      alert("3");
     }
 }
 
