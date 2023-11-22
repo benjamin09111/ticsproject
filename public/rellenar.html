@@ -41,6 +41,57 @@
     <p style="font-size: 4.5rem;">DiabetesCare</p>
     <p style="text-align: center;">Rellena tu información para administrar correctamente. Asegúrese que coincide con lo almacenado en el dispositivo.</p>
     <p style="text-align: center;">Si se le ha redirigido a esta pestaña sin aviso, significa que no le queda alguna dosis para utilizar.</p>
+    <p style="text-align: center;">Si desea borrar o modificar los espacios, se recomienda dar click en "reestablecer" para organizar la información.</p>
+    <div style="display: flex; align-items: center; justify-content: center;" >
+        <button id="reset" type="submit" onclick="resetFunction()">Reestablecer</button>
+    </div>
+
+<script>
+
+    function resetFunction(){
+        const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/reset', {
+        method: 'GET',
+        headers: {
+            'token': token,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            if(data.success == "true"){
+                const modal1 = document.getElementById("modalBg");
+                const modal2 = document.getElementById("cuidadoModal");
+
+                modal1.style.display = "block";
+                modal2.style.display = "block";
+            }else{
+                window.location.href = '/fallo';
+            }
+
+
+        })
+    }
+    }
+
+</script>
+
 </section>
 <div class="" id="avisos"></div>
     <form id="lgn" action="/fill" method="POST">
@@ -52,6 +103,50 @@
             <label class="lbl">Espacio 1</label>
             <input type="checkbox" id="c1" name="espacio1">
         </div>
+
+        <div class="modal-bg" id="modalBg">a</div>    
+        <div class="emergente" style="display: none;" id="cuidadoModal">
+          <span class="close" onclick="cerrarModal()">&times;</span>
+          Datos reestablecidos correctamente.
+        </div>
+
+        <style>
+            .modal-bg{
+              display: none;
+              height: 100vh;
+              width: 100vw;
+              background: rgb(0, 0, 0);
+              z-index: 100;
+              position: fixed;
+              top: 0;
+              left: 0;
+              opacity: 0.5;
+            }
+            .emergente{
+              display: none;
+              background: white;
+              color: black;
+              padding: 2rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 3000;
+            }
+          </style>
+
+          <script>
+            function cerrarModal(){
+            const modalBg = document.getElementById("modalBg");
+            const modal = document.getElementById("cuidadoModal");
+            modalBg.style.display = "none";
+            modal.style.display = "none";
+            }
+          </script>
 
         <div>
             <label class="lbl">Espacio 2</label>

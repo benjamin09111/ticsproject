@@ -89,8 +89,8 @@ function actualizar(){
             }
 
             d1.textContent = dosis[0].toString();
-            d2.textContent = dosis[0].toString();
-            d3.textContent = dosis[0].toString();
+            d2.textContent = dosis[1].toString();
+            d3.textContent = dosis[2].toString();
 
             if(buttons[0] == 1){
                 bt1.textContent = "VACÍO";

@@ -26,7 +26,8 @@
         <article class="temperature-container">
           <label for="">Temperatura actual del dispositivo: </label><div id="temperaturetext">25°C</div>
     </article>
-        <h2 style="text-align: center;">Estado de los espacios</h2>  
+        <div style="display: flex; gap: 2rem; justify-content: center; align-items: center; flex-direction: column;"><h2 style="text-align: center;">Estado de los espacios</h2>
+          <div><a href="/rellenar">Modificar información</a></div></div>
         <article class="buttons-container">
             <article id="container1" class="cont">
               <div class="l">Espacio 1</div>
@@ -56,7 +57,14 @@
               <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
             </article>
             </article>
+      
+        <div class="modal-bg" id="modalBg">a</div>    
+        <div class="emergente">
+          <span class="close" onclick="cerrarModal()">&times;</span>
+          Datos reestablecidos correctamente.
+        </div>
 
+        
         <!-- modal -->
         <div class="modal-bg" id="modalBg"></div>
         <div class="modal" id="cuidadoModal">
@@ -100,16 +108,6 @@
     </script>
 
 <style>
-.modal-bg {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-  z-index: 1; /* Asegura que esté por encima de otros elementos */
-}
 
 .modal {
   display: none;
