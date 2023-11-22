@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
                 const dateCell = document.createElement("div");
                 dateCell.classList.add("table-cell");
-                dateCell.textContent = new Date(temperature.date).toLocaleString(); // Formatear la fecha como desees
+                dateCell.textContent = temperature.date+"°C";
                 containerDiv.appendChild(dateCell);
             
                 temperaturesList.appendChild(containerDiv);

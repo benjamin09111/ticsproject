@@ -80,7 +80,7 @@ router.get("/gettemperature", async(req,res)=>{
         const hours = currentDate.getHours();
         const minutes = currentDate.getMinutes();
 
-        const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
+        const formattedDate = `${day}/${month}/${year} a las ${hours}:${minutes}`;
 
         profile.temperatures.unshift({
             value: temperature,
