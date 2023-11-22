@@ -47,8 +47,9 @@
               <div>Dosis máxima: <p class="b" id="max2"></p></div>
               <div>Dosis actual: <p class="b" id="actuales2"></p></div>
               <div>Dosis a tomar: <p class="b" id="d2"></p></div>
-              <div><a href="/rellenar" class="btnmodificar" id="btnm2">Modificar</a></div>
+              <div><a href="/rellenar" class="btnmodificar" id="btnm2">Modificar</a>
               <button class="btnmodificar" id="restar2" onclick="restar2()" style="border: none;">Restar una dosis</button>
+              </div>
             </article>
             <article id="container3" class="cont">
               <div class="l">Espacio 3</div>
@@ -57,8 +58,9 @@
               <div>Dosis máxima: <p class="b" id="max3"></p></div>
               <div>Dosis actual: <p class="b" id="actuales3"></p></div>
               <div>Dosis a tomar: <p class="b" id="d3"></p></div>
-              <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a></div>
+              <div><a href="/rellenar" class="btnmodificar" id="btnm1">Modificar</a>
               <button class="btnmodificar" id="restar3" onclick="restar3()" style="border: none;">Restar una dosis</button>
+              </div>
             </article>
             </article>
 
@@ -77,19 +79,22 @@
 
         <div class="emergente" style="display: none;" id="espacio1aviso">
           <span class="close" onclick="cerrarModal1()">&times;</span>
-          Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).
+          <div>Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).
+            <b>RECUERDE</b> disminuir la dosis en caso de haberla tomado.</div>
           <a href="/rellenar">Modificar espacios</a>
         </div>
 
         <div class="emergente" style="display: none;" id="espacio2aviso">
           <span class="close" onclick="cerrarModal2()">&times;</span>
-          Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).
+          <div>Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).
+            <b>RECUERDE</b> disminuir la dosis en caso de haberla tomado.</div>
           <a href="/rellenar">Modificar espacios</a>
         </div>
 
         <div class="emergente" style="display: none;" id="espacio3aviso">
           <span class="close" onclick="cerrarModal3()">&times;</span>
-          Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).
+          <div>Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).
+            <b>RECUERDE</b> disminuir la dosis en caso de haberla tomado.</div>
           <a href="/rellenar">Modificar espacios</a>
         </div>
 
