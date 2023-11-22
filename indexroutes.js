@@ -47,7 +47,7 @@ router.get("/obtain", async(req,res)=>{
     }
 
     //retornar la temperature y botones del perfil asociado
-    res.status(200).json({nuevo: profile.nuevo});
+    return res.status(200).json({nuevo: profile.nuevo});
 
 });
 
