@@ -31,6 +31,7 @@
         <article class="buttons-container">
             <article id="container1" class="cont">
               <div class="l">Espacio 1</div>
+              <div id="acabado1" style="color: red; font-size: 2rem;"></div>
               <div>Estado: <p class="b" id="b1">VACIO</p></div>
               <div>Dosis máxima: <p class="b" id="max1"></p></div>
               <div>Dosis actual: <p class="b" id="actuales1"></p></div>
@@ -42,6 +43,7 @@
             </article>
             <article id="container2"  class="cont">
               <div class="l">Espacio 2</div>
+              <div id="acabado2" style="color: red; font-size: 2rem;"></div>
               <div>Estado: <p class="b" id="b2">VACIO</p></div>
               <div>Dosis máxima: <p class="b" id="max2"></p></div>
               <div>Dosis actual: <p class="b" id="actuales2"></p></div>
@@ -51,6 +53,7 @@
             </article>
             <article id="container3" class="cont">
               <div class="l">Espacio 3</div>
+              <div id="acabado3" style="color: red; font-size: 2rem;"></div>
               <div>Estado: <p class="b" id="b3">VACIO</p></div>
               <div>Dosis máxima: <p class="b" id="max3"></p></div>
               <div>Dosis actual: <p class="b" id="actuales3"></p></div>
@@ -60,21 +63,18 @@
             </article>
             </article>
 
-    
-      
-        <div class="modal-bg" id="modalBg">a</div>    
-        <div class="emergente" style="display: none;">
+        <div class="emergente" style="display: none;" id="avisollenar">
           <span class="close" onclick="cerrarModal()">&times;</span>
-          Datos reestablecidos correctamente.
+          Se ha acabado la dosis. Por favor, rellenar e informar a la aplicación.
         </div>
 
         
         <!-- modal -->
         <div class="modal-bg" id="modalBg"></div>
-        <div class="modal" id="cuidadoModal">
+        <div class="emergente" id="cuidadoModal">
             <div class="modal-content">
               <span class="close" onclick="cerrarModal()">&times;</span>
-              <p>Cuidado: La temperatura es extrema. ¡Tenga precaución!</p>
+              Se ha acabado la dosis. Por favor, rellenar e informar a la aplicación.
             </div>
           </div>
         <!-- modal -->
@@ -100,9 +100,7 @@
     function cerrarModal(){
       const modalBg = document.getElementById("modalBg");
       const modal = document.getElementById("cuidadoModal");
-      const cambiarcolor = document.getElementById("temperaturetext");
 
-      cambiarcolor.style.textDecoration = "true";
       modalBg.style.display = "none";
       modal.style.display = "none";
     }
@@ -176,12 +174,19 @@
     })
         .then(response => response.json())
         .then(data =>{
-            
-            if(data.success == "true"){
-                window.location.href = '/home';
+
+          if(data.success != "true"){
+            window.location.href = '/fallo';
+          }else{
+            if(aviso == 1){
+              const aviso = document.getElementById("avisollenar");
+              const fondo = document.getElementById("modalBg");
+              aviso.style.display = "block";
+              fondo.style.display = "block";
             }else{
-                window.location.href = '/fallo';
+              window.location.href = '/home';
             }
+          }
         })
     }
 }
@@ -214,11 +219,18 @@ function restar2(){
         .then(response => response.json())
         .then(data =>{
             
-            if(data.success == "true"){
-                window.location.href = '/home';
+          if(data.success != "true"){
+            window.location.href = '/fallo';
+          }else{
+            if(aviso == 1){
+              const aviso = document.getElementById("avisollenar");
+              const fondo = document.getElementById("modalBg");
+              aviso.style.display = "block";
+              fondo.style.display = "block";
             }else{
-                window.location.href = '/fallo';
+              window.location.href = '/home';
             }
+          }
         })
     }
 }
@@ -251,11 +263,18 @@ function restar3(){
         .then(response => response.json())
         .then(data =>{
             
-            if(data.success == "true"){
-                window.location.href = '/home';
+          if(data.success != "true"){
+            window.location.href = '/fallo';
+          }else{
+            if(aviso == 1){
+              const aviso = document.getElementById("avisollenar");
+              const fondo = document.getElementById("modalBg");
+              aviso.style.display = "block";
+              fondo.style.display = "block";
             }else{
-                window.location.href = '/fallo';
+              window.location.href = '/home';
             }
+          }
         })
     }
 }

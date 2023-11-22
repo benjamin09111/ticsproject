@@ -46,10 +46,6 @@ function actualizar(){
             const contenedor2 = document.getElementById("container2");
             const contenedor3 = document.getElementById("container3");
 
-            const uso1 = document.getElementById("uso1");
-            const uso2 = document.getElementById("uso2");
-            const uso3 = document.getElementById("uso3");
-
             const actuales1 = document.getElementById("actuales1");
             const actuales2 = document.getElementById("actuales2");
             const actuales3 = document.getElementById("actuales3");
@@ -69,6 +65,20 @@ function actualizar(){
             actuales1.textContent = actuales[0].toString();
             actuales2.textContent = actuales[1].toString();
             actuales3.textContent = actuales[2].toString();
+
+            const a1 = document.getElementById("acabado1");
+            const a2 = document.getElementById("acabado2");
+            const a3 = document.getElementById("acabado3");
+
+            if(actuales[0] == 0){
+                a1.textContent = "¡ACABADO!";
+            }
+            if(actuales[1] == 0){
+                a2.textContent = "¡ACABADO!";
+            }
+            if(actuales[2] == 0){
+                a3.textContent = "¡ACABADO!";
+            }
 
             max1.textContent = max[0].toString();
             max2.textContent = max[1].toString();
