@@ -2,6 +2,7 @@ function mostrarModal() {
     const modalBg = document.getElementById("modalBg");
     const modal = document.getElementById("cuidadoModal");
     const cambiarcolor = document.getElementById("temperaturetext");
+    
 
     cambiarcolor.style.color = "red";
     modalBg.style.display = "block";

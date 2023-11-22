@@ -178,7 +178,7 @@
           if(data.success != "true"){
             window.location.href = '/fallo';
           }else{
-            if(aviso == 1){
+            if(data.aviso == 1 && data.visible == 1){
               const aviso = document.getElementById("avisollenar");
               const fondo = document.getElementById("modalBg");
               aviso.style.display = "block";

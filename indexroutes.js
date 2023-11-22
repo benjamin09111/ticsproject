@@ -327,16 +327,20 @@ router.get("/restar1", async (req, res) => {
     const actual = profile.actuales[0];
     const dosis = profile.dosis[0];
     var act = 0;
+    var visible = 0;
 
     if(actual - dosis <= 0){
         profile.actuales[0] = 0;
         act = 1;
+        if(profile.max[0] > 0){
+            visible = 1;
+        }
     }else{
         profile.actuales[0] = actual - dosis;
     }
 
     await profile.save();
-    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act});
+    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act, visible: visible});
 });
 
 router.get("/restar2", async (req, res) => {
@@ -352,16 +356,19 @@ router.get("/restar2", async (req, res) => {
     const actual = profile.actuales[1];
     const dosis = profile.dosis[1];
     var act = 0;
-    
+    var visible = 0;
     if(actual - dosis <= 0){
         profile.actuales[1] = 0;
         act = 1;
+        if(profile.max[1] > 0){
+            visible = 1;
+        }
     }else{
         profile.actuales[1] = actual - dosis;
     }
 
     await profile.save();
-    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act});});
+    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act, visible: visible});});
 
 router.get("/restar3", async (req, res) => {
     did = 5;
@@ -376,16 +383,20 @@ router.get("/restar3", async (req, res) => {
     const actual = profile.actuales[2];
     const dosis = profile.dosis[2];
     var act = 0;
+    var visible = 0;
     
     if(actual - dosis <= 0){
         profile.actuales[2] = 0;
         act = 1;
+        if(profile.max[2] > 0){
+            visible = 1;
+        }
     }else{
         profile.actuales[2] = actual - dosis;
     }
 
     await profile.save();
-    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act});});
+    return res.status(200).json({ success: "true", message: "Reestablecido.", act: act, visible: visible});});
 
 router.post("/fill", async (req, res) => {
     const {espacio1, espacio2, espacio3, max1, max2, max3, d1, d2, d3} = req.body;
