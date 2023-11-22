@@ -2,6 +2,8 @@ const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const admin = require('firebase-admin');
+const indexRoutes = require("./indexroutes");
+const viewRoutes = require("./viewroutes");
 const cookieParser = require('cookie-parser');
 const User = require("./user");
 
