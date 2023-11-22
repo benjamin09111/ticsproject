@@ -59,6 +59,8 @@
               <button class="btnmodificar" id="restar3" onclick="restar3()" style="border: none;">Restar una dosis</button>
             </article>
             </article>
+
+    
       
         <div class="modal-bg" id="modalBg">a</div>    
         <div class="emergente" style="display: none;">
@@ -105,16 +107,6 @@
       modal.style.display = "none";
     }
 
-    function restar1(){
-
-    }
-    function restar2(){
-
-    }
-    function restar3(){
-      
-    }
-
     </script>
 
 <style>
@@ -155,5 +147,119 @@
 }
 
 </style>
+
+<script>
+  function restar1(){
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/restar1', {
+        method: 'GET',
+        headers: {
+            'token': token,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            
+            if(data.success == "true"){
+                window.location.href = '/home';
+            }else{
+                window.location.href = '/fallo';
+            }
+        })
+    }
+}
+
+function restar2(){
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/restar2', {
+        method: 'GET',
+        headers: {
+            'token': token,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            
+            if(data.success == "true"){
+                window.location.href = '/home';
+            }else{
+                window.location.href = '/fallo';
+            }
+        })
+    }
+}
+
+function restar3(){
+    const cookieString = document.cookie;
+    const cookies = cookieString.split('; ');
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].split('=');
+        const cookieName = cookie[0];
+        const cookieValue = cookie[1];
+
+        if (cookieName === 'token') {
+            token = cookieValue;
+            break;
+        }
+    }
+
+    if(token == null || !token){
+        window.location.href = "/";
+    }else{
+        fetch('https://ticsproject.onrender.com/restar3', {
+        method: 'GET',
+        headers: {
+            'token': token,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data =>{
+            
+            if(data.success == "true"){
+                window.location.href = '/home';
+            }else{
+                window.location.href = '/fallo';
+            }
+        })
+    }
+}
+</script>
+
 </body>
 </html>
