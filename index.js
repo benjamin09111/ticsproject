@@ -1,8 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const { initializeApp } = require("firebase/app");
-const { getAnalytics } = require("firebase/analytics");
 const admin = require('firebase-admin');
 const cookieParser = require('cookie-parser');
 const User = require("./user");
@@ -30,10 +28,6 @@ const firebaseConfig = {
   appId: "1:698445301799:web:dae23697a2b2ab16be2602",
   measurementId: "G-3JPMK1K9BB"
 };
-
-// Inicializar Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const analytics = getAnalytics(firebaseApp);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
