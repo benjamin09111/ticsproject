@@ -21,7 +21,7 @@
     </nav>
     <div id="a"></div>
     <main>
-      <h1 style="text-align: center;">DiabetesCare</h1>
+      <h1 style="text-align: center;" id="lol">DiabetesCare</h1>
         <div class="btn-container"><button class="getT" id="getTemperature" type="submit">Actualizar información del dispositivo</button></div>
         <article class="temperature-container">
           <label for="">Temperatura actual del dispositivo: </label><div id="temperaturetext">0</div>
@@ -268,7 +268,7 @@ function restar3(){
     }
 }
 
-async function pasedTime() {
+function pasedTime() {
     const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
     const c3 = document.getElementById("container3");
@@ -279,17 +279,22 @@ async function pasedTime() {
 
     console.log("display: ", c1.style.display, " y texto: ", dis1.textContent)
 
+    const xd = document.getElementById("lol");
+
     if (c1.style.display == "block" && dis1.textContent == "VACIO") {
+      xd.textContent = "JAJAJA";
         alert("it works!");
         console.log("AA!");
     }
 
     if (c2.style.display == "block" && dis2.textContent == "VACIO") {
+      xd.textContent = "JAJAJA";
         alert("it works!");
         console.log("AA!");
     }
 
     if (c3.style.display == "block" && dis3.textContent == "VACIO") {
+      xd.textContent = "JAJAJA";
         alert("it works!");
         console.log("AA!")
     }
