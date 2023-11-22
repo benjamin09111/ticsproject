@@ -136,7 +136,7 @@ function actualizar(){
 
             //modal aviso
             const parsedTemperature = parseFloat(temperature);
-            if(parsedTemperature > 30 || parsedTemperature < 0){
+            if(parsedTemperature > 5 || parsedTemperature < 0){
                 mostrarModal();
             }
         })
