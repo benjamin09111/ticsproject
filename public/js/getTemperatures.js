@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
             
                 const valueCell = document.createElement("div");
                 valueCell.classList.add("table-cell");
-                valueCell.textContent = temperature.value;
+                valueCell.textContent = temperature.value+"°C";;
                 containerDiv.appendChild(valueCell);
             
                 const dateCell = document.createElement("div");
                 dateCell.classList.add("table-cell");
-                dateCell.textContent = temperature.date+"°C";
+                dateCell.textContent = temperature.date;
                 containerDiv.appendChild(dateCell);
             
                 temperaturesList.appendChild(containerDiv);

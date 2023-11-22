@@ -71,24 +71,6 @@ router.get("/gettemperature", async(req,res)=>{
         return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
     }
 
-    //agregado XD
-        const currentDate = new Date(Date.now());
-        const temperature = 15;
-        const day = currentDate.getDate();
-        const month = currentDate.getMonth() + 1; // Los meses van de 0 a 11, sumamos 1 para obtener el formato estándar
-        const year = currentDate.getFullYear();
-        const hours = currentDate.getHours();
-        const minutes = currentDate.getMinutes();
-
-        const formattedDate = `${day}/${month}/${year} a las ${hours}:${minutes}`;
-
-        profile.temperatures.unshift({
-            value: temperature,
-            date: formattedDate
-        });
-
-        profile.save();
-
     //retornar la temperature y botones del perfil asociado
     res.status(200).json({temperature: profile.temperature, buttons: profile.buttons, max: profile.max, dosis: profile.dosis, actuales: profile.actuales});
 

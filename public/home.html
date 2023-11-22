@@ -22,7 +22,6 @@
     <div id="a"></div>
     <main>
       <h1 style="text-align: center;" id="lol">DiabetesCare</h1>
-        <div class="btn-container"><button class="getT" id="getTemperature" type="submit">Actualizar información del dispositivo</button></div>
         <article class="temperature-container">
           <label for="">Temperatura actual del dispositivo: </label><div id="temperaturetext">0</div>
     </article>
@@ -74,22 +73,24 @@
         <div class="emergente" style="display: none;" id="espacio1aviso">
           <span class="close" onclick="cerrarModal1()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).
+          <a href="/rellenar">Modificar espacios</a>
         </div>
 
         <div class="emergente" style="display: none;" id="espacio2aviso">
           <span class="close" onclick="cerrarModal2()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).
+          <a href="/rellenar">Modificar espacios</a>
         </div>
 
         <div class="emergente" style="display: none;" id="espacio3aviso">
           <span class="close" onclick="cerrarModal3()">&times;</span>
           Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).
+          <a href="/rellenar">Modificar espacios</a>
         </div>
 
         <article class="historial-container">
             <h2>Historial</h2>
         <p style="text-align: center;">Se muestran los registros de temperatura relevantes, además del horario.</p>
-        <div style="display: flex; gap: 2rem;"><label for="">Actualizar historial temperaturas</label><a href="/home"></a></div>
       </article>
         <section class="list-container">
           <div id="temperaturesList" class="table">
