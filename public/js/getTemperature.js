@@ -194,7 +194,11 @@ gettemperaturebutton.addEventListener("click", function(event) {
 //realizar cada 5 seg
 setInterval(actualizar, 2000);
 
-async function pasedTime(){
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function pasedTime() {
     const works = document.getElementById("a");
     const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
@@ -204,22 +208,22 @@ async function pasedTime(){
     const dis2 = document.getElementById("b2");
     const dis3 = document.getElementById("b3");
 
-    if(c1.style.display == "block" && dis1.textContent == "VACIO"){
-        await setTimeout(3000);
+    if (c1.style.display === "block" && dis1.textContent === "VACIO") {
+        await sleep(3000);
         works.textContent = "SE PUEDE!";
     }
 
-    if(c2.style.display == "block" && dis2.textContent == "VACIO"){
-        await setTimeout(3000);
+    if (c2.style.display === "block" && dis2.textContent === "VACIO") {
+        await sleep(3000);
         works.textContent = "SE PUEDE!";
     }
 
-    if(c3.style.display == "block" && dis3.textContent == "VACIO"){
-        await setTimeout(3000);
+    if (c3.style.display === "block" && dis3.textContent === "VACIO") {
+        await sleep(3000);
         works.textContent = "SE PUEDE!";
     }
-
 }
 
 setInterval(pasedTime, 5000);
+
 
