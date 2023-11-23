@@ -141,31 +141,31 @@ router.post("/begin", async(req,res)=>{
          return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
      }
 
-     if(buttonState1 != -1){
+     if(buttonState1 != 0){
         profile.buttons[0] = buttonState1;
      }
-     if(buttonState2 != -1){
+     if(buttonState2 != 0){
         profile.buttons[1] = buttonState2;
      }
-     if(buttonState3 != -1){
+     if(buttonState3 != 0){
         profile.buttons[2] = buttonState3;
      }
-     if(max1 != -1){
+     if(max1 != 0){
         profile.max[0] = max1;
      }
-     if(max2 != -1){
+     if(max2 != 0){
         profile.max[1] = max2;
      }
-     if(max3 != -1){
+     if(max3 != 0){
         profile.max[2] = max3;
      }
-     if(d1 != -1){
+     if(d1 != 0){
         profile.dosis[0] = d1;
      }
-     if(d2 != -1){
+     if(d2 != 0){
         profile.dosis[1] = d2;
      }
-     if(d3 != -1){
+     if(d3 != 0){
         profile.dosis[2] = d3;
      }
 
