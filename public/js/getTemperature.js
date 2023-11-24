@@ -117,21 +117,21 @@ function actualizar(){
             d3.textContent = dosis[2].toString();
 
             if(buttons[0] == 1){
-                bt1.textContent = "OCUPADO";
-            }else{
                 bt1.textContent = "VACÍO";
+            }else{
+                bt1.textContent = "OCUPADO";
             }
 
             if(buttons[1] == 1){
-                bt2.textContent = "OCUPADO";
-            }else{
                 bt2.textContent = "VACÍO";
+            }else{
+                bt2.textContent = "OCUPADO";
             }
 
             if(buttons[2] == 1){
-                bt3.textContent = "OCUPADO";
+                bt3.textContent = "VACIO";
             }else{
-                bt3.textContent = "VACÍO";
+                bt3.textContent = "OCUPADO";
             }
 
             //modal aviso
@@ -192,7 +192,7 @@ gettemperaturebutton.addEventListener("click", function(event) {
 });
 
 //realizar cada 5 seg
-setInterval(actualizar, 2000);
+setInterval(actualizar, 5000);
 
 
 
