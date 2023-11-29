@@ -37,15 +37,12 @@ const userSchema = new mongoose.Schema({
         value: {
             type: Number,
             required: true,
-            default: 0
         },
         date: {
             type: String,
-            default: Date.now().toLocaleString(),
-            default: "Off"
         }
     }],
-    default: [{value: 0, date: "Off"}]
+    default: [{"value": 0, "date": Date.now().toLocaleString()}]
     , 
     buttons : {
         type: [Number],
