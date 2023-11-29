@@ -5,13 +5,6 @@ function cerrarModalAvisoLlenar() {
     modal2.style.display = "none";
 }
 
-function cerrarAvisoTemperatura(){
-    const modalBg = document.getElementById("modalBg1");
-    const modal = document.getElementById("cuidadoModal");
-    modalBg.style.display = "none";
-    modal.style.display = "none";
-}
-
 function cerrarModal1() {
     const modalBg = document.getElementById("modalBg2");
     const aviso = document.getElementById("espacio1aviso");

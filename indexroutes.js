@@ -297,14 +297,14 @@ router.post("/buttonsget", async(req,res)=>{
         //dispositivo llega como 1 pero es vacío, ponemos 0
         profile.buttons[1] = 0;
     }else{
-        profile.buttons[0] = 1;
+        profile.buttons[1] = 1;
     }
 
     if(parseFloat(buttonState3)==1){
         //dispositivo llega como 1 pero es vacío, ponemos 0
         profile.buttons[2] = 0;
     }else{
-        profile.buttons[0] = 1;
+        profile.buttons[2] = 1;
     }
     
     console.log("Botones actualizados, está vacío entonces muestra un: ", parseFloat(buttonState1));

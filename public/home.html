@@ -59,7 +59,7 @@
           <div id="acabado1" style="color: red; font-size: 2rem"></div>
           <div>
             Estado:
-            <p class="b" id="b1">VACIO</p>
+            <p class="b" id="b1"></p>
           </div>
           <div>
             Dosis máxima:
@@ -153,14 +153,19 @@
       <div class="modal-bg" id="modalBg2"></div>
       <div class="modal-bg" id="modalBg3"></div>
       <div class="modal-bg" id="modalBg4"></div>
-      <div class="modal-bg" id="modalBg5"></div>
-      <div class="modal-bg" id="modalBg6"></div>
-      <div class="modal-bg" id="modalBg7"></div>
 
+      <div class="modal-bg" id="modalBg1"></div>
       <div class="emergente" style="display: none" id="cuidadoModal">
         <span class="close" onclick="cerrarAvisoTemperatura()">&times;</span>
         ¡Alerta! La temperatura es peligrosa, protega su dispositivo.
       </div>
+      <script>
+        function cerrarAvisoTemperatura(){
+        const modalBg = document.getElementById("modalBg1");
+        const modal = document.getElementById("cuidadoModal");
+        modalBg.style.display = "none";
+        modal.style.display = "none";}
+      </script>
 
       <div class="emergente" style="display: none" id="avisollenar">
         <span class="close" onclick="cerrarModalAvisoLlenar()">&times;</span>

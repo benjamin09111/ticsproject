@@ -176,7 +176,7 @@ gettemperaturebutton.addEventListener("click", function(event) {
 });
 
 //realizar cada 5 seg
-setInterval(actualizar, 5000);
+setInterval(actualizar, 8000);
 
 
 
