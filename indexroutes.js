@@ -15,18 +15,6 @@ router.use(express.json({}));
 router.use(express.static("public"))
 router.use(bodyParser.json());
 
-/*
-FUNCIONES A AGREGAR
-
-- En caso de detectar cambio de un botón, enviar confirmación !
-- Al sobrepasar temperatura, automaticamente lanzar un aviso, igual que el cambio de botón 
-- Ingresar primeramente al iniciar sesión: atributo "nuevo: bool" para inscribir información !
-- Batería baja 
-- Agregar gráfico de temperatura en vez de historial, o hacer una tabla más bonita ! READY
-- Alarma si es que el estado del boton no ha cambiado !
-- Permitir ver cuantas dosis le quedan según lo que toma por cada una, matematica ! 
-*/
-
 router.get("/obtain", async(req,res)=>{
     const token = req.headers['token'];
 

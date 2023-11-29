@@ -1,0 +1,47 @@
+body::before {
+    content: "";
+    background-image: url('./images/fondohome.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca la capa detrás del contenido */
+    opacity: 0.08;
+    filter: alpha(opacity=70);
+}
+
+.b1, .b2, .b3, .b4, .b5, .b6{
+    display: none;
+    width: 100%;
+}
+
+.modal-bg{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 0, 0);
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+  }
+  .emergente{
+    display: none;
+    background: white;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolutbege;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000;
+  }

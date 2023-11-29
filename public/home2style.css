@@ -1,0 +1,85 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    /* Añade un borde a la tabla */
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    /* Borde entre filas */
+}
+
+.table-cell {
+    flex: 1;
+    /* Ocupar espacio igual en ambas celdas */
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    z-index: 2;
+    /* Asegura que esté por encima de la capa de fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btnmodificar {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    border-radius: 15px;
+    margin: 1rem 0rem;
+    background: rgb(0, 198, 224);
+    color: white;
+    transition: background .2s ease;
+}
+
+.btnmodificar:hover {
+    background: rgb(0, 117, 133);
+}
+
+.modal-bg {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 0, 0);
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+
+.emergente {
+    display: none;
+    background: white;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000;
+}
