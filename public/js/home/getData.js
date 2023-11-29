@@ -192,3 +192,5 @@ async function actualizar() {
 document.addEventListener("DOMContentLoaded", function () {
     actualizar();
 });
+
+setInterval(actualizar, 8000);
