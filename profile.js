@@ -36,11 +36,13 @@ const userSchema = new mongoose.Schema({
     temperatures: [{
         value: {
             type: Number,
-            required: true
+            required: true,
+            default: 0
         },
         date: {
             type: String,
-            default: Date.now().toLocaleString()
+            default: Date.now().toLocaleString(),
+            default: "Off"
         }
     }],
     buttons : {
