@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     border: 1px solid #ddd;
-    /* Añade un borde a la tabla */
+    max-height: 15rem; /* Ajusta este valor según sea necesario */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
 }
 
 .table-row {
