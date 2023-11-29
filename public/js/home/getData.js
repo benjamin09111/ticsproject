@@ -1,24 +1,3 @@
-function alerta1() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio1aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
-function alerta2() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio2aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
-function alerta3() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio3aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
 //llamar a get temperature y obtener los botones y temperatura
 
 const gettemperaturebutton = document.getElementById("getTemperature");
@@ -55,7 +34,7 @@ async function actualizar() {
                 const text = document.getElementById("temperaturetext");
                 text.textContent = temperature;
 
-                const c1 = document.getElementById("container1");
+    const c1 = document.getElementById("container1");
     const c2 = document.getElementById("container2");
     const c3 = document.getElementById("container3");
 
@@ -63,29 +42,9 @@ async function actualizar() {
     const dis2 = document.getElementById("b2");
     const dis3 = document.getElementById("b3");
 
-    if (
-        getComputedStyle(c1).display == "block" &&
-        dis1.textContent == "VACÍO"
-    ) {
-        alerta1();
-        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).")
-    }
-
-    if (
-        getComputedStyle(c2).display == "block" &&
-        dis2.textContent == "VACÍO"
-    ) {
-        alerta2();
-        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).")
-    }
-
-    if (
-        getComputedStyle(c3).display == "block" &&
-        dis3.textContent == "VACÍO"
-    ) {
-        alerta3();
-        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).")
-    }
+    const av1 = document.getElementById("espacio1aviso");
+    const av2 = document.getElementById("espacio2aviso");
+    const av3 = document.getElementById("espacio3aviso");
 
                 const contenedor1 = document.getElementById("container1");
                 const contenedor2 = document.getElementById("container2");
@@ -162,25 +121,37 @@ async function actualizar() {
 
                 if (buttons[0] == 1) {
                     bt1.textContent = "VACÍO";
+                    if (getComputedStyle(c1).display == "block" && dis1.textContent == "VACÍO") {
+                        av1.style.display = "block";
+                        fondo.style.display = "block";
+                    }
                 } else {
                     bt1.textContent = "OCUPADO";
                 }
 
                 if (buttons[1] == 1) {
                     bt2.textContent = "VACÍO";
+                    if (getComputedStyle(c2).display == "block" && dis2.textContent == "VACÍO") {
+                        av1.style.display = "block";
+                        fondo.style.display = "block";
+                    }
                 } else {
                     bt2.textContent = "OCUPADO";
                 }
 
                 if (buttons[2] == 1) {
                     bt3.textContent = "VACIO";
+                    if (getComputedStyle(c3).display == "block" && dis3.textContent == "VACÍO") {
+                        av1.style.display = "block";
+                        fondo.style.display = "block";
+                    }
                 } else {
                     bt3.textContent = "OCUPADO";
                 }
 
                 //modal aviso
                 const parsedTemperature = parseFloat(temperature);
-                if (parsedTemperature > 28 || parsedTemperature < 0) {
+                if (parsedTemperature > 2 || parsedTemperature < 0) {
                     //menor o igual a cero
                     mostrarModal();
                 }
