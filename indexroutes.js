@@ -250,22 +250,24 @@ router.post("/temperatureget", async (req, res) => {
     profile.temperature = temperature; //temperatura actual
 
     //solo se agrega al historial si es diferente a lo ultimo leído
-    if(profile.temperatures[0].value != temperature){
+    if(profile.temperatures[0].value){
+        if(profile.temperatures[0].value != temperature){
 
-        const currentDate = new Date(Date.now());
-
-        const day = currentDate.getDate();
-        const month = currentDate.getMonth() + 1; // Los meses van de 0 a 11, sumamos 1 para obtener el formato estándar
-        const year = currentDate.getFullYear();
-        const hours = currentDate.getHours();
-        const minutes = currentDate.getMinutes();
-
-        const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
-
-        profile.temperatures.unshift({
-            value: temperature,
-            date: formattedDate
-        });
+            const currentDate = new Date(Date.now());
+    
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1; // Los meses van de 0 a 11, sumamos 1 para obtener el formato estándar
+            const year = currentDate.getFullYear();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+    
+            const formattedDate = `${day}/${month}/${year} ${hours}:${minutes}`;
+    
+            profile.temperatures.unshift({
+                value: temperature,
+                date: formattedDate
+            });
+        }
     }
     await profile.save();
 });
