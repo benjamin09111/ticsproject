@@ -45,6 +45,8 @@ const userSchema = new mongoose.Schema({
             default: "Off"
         }
     }],
+    default: [{value: 0, date: "Off"}]
+    , 
     buttons : {
         type: [Number],
         default: [0,0,0]
