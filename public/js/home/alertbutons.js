@@ -31,19 +31,19 @@ function buttons(){
             console.log("Se hace o no se hace boton 3: ", sb3);
 
             if(sb1){
-                const fondo = document.getElementById("modalBg");
+                const fondo = document.getElementById("modalBg2");
                 const av = document.getElementById("espacio1aviso");
                 av.style.display = "block";
                 fondo.style.display = "block";
             }
             if(sb2){
-                const fondo = document.getElementById("modalBg");
+                const fondo = document.getElementById("modalBg3");
                 const av = document.getElementById("espacio2aviso");
                 av.style.display = "block";
                 fondo.style.display = "block";
             }
             if(sb3){
-                const fondo = document.getElementById("modalBg");
+                const fondo = document.getElementById("modalBg4");
                 const av = document.getElementById("espacio3aviso");
                 av.style.display = "block";
                 fondo.style.display = "block";

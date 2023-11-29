@@ -28,7 +28,7 @@ function temperatureDanger(){
             const {peligro} = data;
 
             if(peligro){
-                const fondo = document.getElementById("modalBg");
+                const fondo = document.getElementById("modalBg1");
                 const av = document.getElementById("cuidadoModal");
                 av.style.display = "block";
                 fondo.style.display = "block";

@@ -108,21 +108,21 @@ function actualizar(){
             d3.textContent = dosis[2].toString();
 
             if(buttons[0] == 1){
-                bt1.textContent = "VACÍO";
-            }else{
                 bt1.textContent = "OCUPADO";
+            }else{
+                bt1.textContent = "VACÍO";
             }
 
             if(buttons[1] == 1){
-                bt2.textContent = "VACÍO";
-            }else{
                 bt2.textContent = "OCUPADO";
+            }else{
+                bt2.textContent = "VACÍO";
             }
 
             if(buttons[2] == 1){
-                bt3.textContent = "VACIO";
-            }else{
                 bt3.textContent = "OCUPADO";
+            }else{
+                bt3.textContent = "VACÍO";
             }
         })
     }
