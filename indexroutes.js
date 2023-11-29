@@ -125,7 +125,7 @@ router.get("/tempalert", async(req,res)=>{
     var booleano = false;
     const temperature = profile.temperature;
 
-    if(temperature > 8 || temperature < 0){
+    if(temperature > 28 || temperature < 0){
         booleano = true;
     }
 
@@ -507,15 +507,6 @@ router.post("/fill", async (req, res) => {
         return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
     }
 
-    if(espacio1){
-        profile.buttons[0] = 1;
-    }
-    if(espacio2){
-        profile.buttons[1] = 1;
-    }
-    if(espacio3){
-        profile.buttons[2] = 1;
-    }
     if(max1 && max1 > 0){
         profile.max[0] = max1;
         profile.actuales[0] = max1;
