@@ -2,4 +2,4 @@
 function recargarPagina() {
     location.reload();
 }
-setInterval(recargarPagina, 5000);
+setInterval(recargarPagina, 8000);

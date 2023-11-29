@@ -1,3 +1,4 @@
+/*
 function getInfo(){
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
@@ -38,3 +39,5 @@ function getInfo(){
 //realizar cada 5 seg
 setInterval(getInfo, 5000);
 
+
+*/
