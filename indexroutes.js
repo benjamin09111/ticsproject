@@ -289,7 +289,9 @@ router.post("/buttonsget", async(req,res)=>{
     profile.buttons[0] = parseFloat(buttonState1);
     profile.buttons[1]= parseFloat(buttonState2);
     profile.buttons[2] = parseFloat(buttonState3);
-    console.log("Actualizand botones ", parseFloat(buttonState1));
+    
+    console.log("Botones actualizados, está vacío entonces muestra un: ", parseFloat(buttonState1));
+
     await profile.save();
 
 });

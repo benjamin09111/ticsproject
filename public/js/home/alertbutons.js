@@ -1,24 +1,3 @@
-function alerta1() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio1aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
-function alerta2() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio2aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
-function alerta3() {
-    const fondo = document.getElementById("modalBg");
-    const av = document.getElementById("espacio3aviso");
-    av.style.display = "block";
-    fondo.style.display = "block";
-}
-
 function buttons(){
     const cookieString = document.cookie;
     const cookies = cookieString.split('; ');
@@ -48,14 +27,26 @@ function buttons(){
         .then(data =>{
             const {sb1, sb2, sb3} = data;
 
+            console.log("Se hace o no se hace boton 1: ", sb1);
+            console.log("Se hace o no se hace boton 3: ", sb3);
+
             if(sb1){
-                alerta1();
+                const fondo = document.getElementById("modalBg");
+                const av = document.getElementById("espacio1aviso");
+                av.style.display = "block";
+                fondo.style.display = "block";
             }
             if(sb2){
-                alerta2();
+                const fondo = document.getElementById("modalBg");
+                const av = document.getElementById("espacio2aviso");
+                av.style.display = "block";
+                fondo.style.display = "block";
             }
             if(sb3){
-                alerta3();
+                const fondo = document.getElementById("modalBg");
+                const av = document.getElementById("espacio3aviso");
+                av.style.display = "block";
+                fondo.style.display = "block";
             }
 
         })
