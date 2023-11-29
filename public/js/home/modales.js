@@ -11,16 +11,6 @@ function cerrarModal() {
     espacio3.style.display = "none";
 }
 
-function mostrarModal() {
-    const modalBg = document.getElementById("modalBg");
-    const modal = document.getElementById("cuidadoModal");
-    const cambiarcolor = document.getElementById("temperaturetext");
-
-    cambiarcolor.style.color = "red";
-    modalBg.style.display = "block";
-    modal.style.display = "block";
-}
-
 function cerrarModal1() {
     const modalBg = document.getElementById("modalBg");
     const aviso = document.getElementById("espacio1aviso");

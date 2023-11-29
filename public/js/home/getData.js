@@ -1,3 +1,13 @@
+function mostrarModal() {
+    const modalBg = document.getElementById("modalBg");
+    const modal = document.getElementById("cuidadoModal");
+    const cambiarcolor = document.getElementById("temperaturetext");
+
+    cambiarcolor.style.color = "red";
+    modalBg.style.display = "block";
+    modal.style.display = "block";
+}
+
 //llamar a get temperature y obtener los botones y temperatura
 
 const gettemperaturebutton = document.getElementById("getTemperature");
@@ -34,17 +44,9 @@ async function actualizar() {
                 const text = document.getElementById("temperaturetext");
                 text.textContent = temperature;
 
-    const c1 = document.getElementById("container1");
-    const c2 = document.getElementById("container2");
-    const c3 = document.getElementById("container3");
-
-    const dis1 = document.getElementById("b1");
-    const dis2 = document.getElementById("b2");
-    const dis3 = document.getElementById("b3");
-
-    const av1 = document.getElementById("espacio1aviso");
-    const av2 = document.getElementById("espacio2aviso");
-    const av3 = document.getElementById("espacio3aviso");
+                const av1 = document.getElementById("espacio1aviso");
+                const av2 = document.getElementById("espacio2aviso");
+                const av3 = document.getElementById("espacio3aviso");
 
                 const contenedor1 = document.getElementById("container1");
                 const contenedor2 = document.getElementById("container2");
@@ -121,7 +123,7 @@ async function actualizar() {
 
                 if (buttons[0] == 1) {
                     bt1.textContent = "VACÍO";
-                    if (getComputedStyle(c1).display == "block" && dis1.textContent == "VACÍO") {
+                    if (actuales[0] > 0) {
                         av1.style.display = "block";
                         fondo.style.display = "block";
                     }
@@ -131,8 +133,8 @@ async function actualizar() {
 
                 if (buttons[1] == 1) {
                     bt2.textContent = "VACÍO";
-                    if (getComputedStyle(c2).display == "block" && dis2.textContent == "VACÍO") {
-                        av1.style.display = "block";
+                    if (actuales[1] > 0) {
+                        av2.style.display = "block";
                         fondo.style.display = "block";
                     }
                 } else {
@@ -141,8 +143,8 @@ async function actualizar() {
 
                 if (buttons[2] == 1) {
                     bt3.textContent = "VACIO";
-                    if (getComputedStyle(c3).display == "block" && dis3.textContent == "VACÍO") {
-                        av1.style.display = "block";
+                    if (actuales[2] > 0) {
+                        av3.style.display = "block";
                         fondo.style.display = "block";
                     }
                 } else {
@@ -150,7 +152,9 @@ async function actualizar() {
                 }
 
                 //modal aviso
+                
                 const parsedTemperature = parseFloat(temperature);
+                console.log(parsedTemperature)
                 if (parsedTemperature > 2 || parsedTemperature < 0) {
                     //menor o igual a cero
                     mostrarModal();
