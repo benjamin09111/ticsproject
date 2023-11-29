@@ -64,6 +64,45 @@ router.get("/gettemperature", async(req,res)=>{
 
 });
 
+router.get("/butonalert", async(req,res)=>{
+    const token = req.headers['token'];
+
+    const decoded = jwt.verify(token, SECRET);
+        
+    const user = await User.findOne({ _id: decoded.id });
+
+    if(!user){
+        return res.status(400).json({ success: "false", message: "Usuario no encontrado" });
+    }
+    //obtener did del usuario
+    const emailuser = user.email;
+    //buscar temperature del usuario asociado al perfil
+    const profile = await Profile.findOne({user: emailuser});
+
+    if(!profile){
+        return res.status(400).json({ success: "false", message: "Perfil no encontrado" });
+    }
+
+    const buttons = profile.buttons;
+    const dosis = profile.dosis;
+    
+    var signalbutton1 = false;
+    var signalbutton2 = false;
+    var signalbutton3 = false;
+
+    if(buttons[0] == 0 && dosis[0] > 0){
+        signalbutton1 = true;
+    }
+    if(buttons[1] == 0 && dosis[1] > 0){
+        signalbutton2 = true;
+    }
+    if(buttons[2] == 0 && dosis[2] > 0){
+        signalbutton3 = true;
+    }
+
+    res.status(200).json({sb1: signalbutton1, sb2: signalbutton2, sb3: signalbutton3});
+}); 
+
 router.get("/getcont", async(req,res)=>{
     const token = req.headers['token'];
 

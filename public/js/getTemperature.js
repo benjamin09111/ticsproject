@@ -186,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function() {
    actualizar();
 });
 
-//AJUSTAR DESPUES LA DIRECCION DE LA PAGINA, NO LOCALHOST
 gettemperaturebutton.addEventListener("click", function(event) {
     actualizar();
 });
