@@ -1,13 +1,4 @@
-function mostrarModal() {
-    const modalBg = document.getElementById("modalBg");
-    const modal = document.getElementById("cuidadoModal");
-    const cambiarcolor = document.getElementById("temperaturetext");
 
-
-    cambiarcolor.style.color = "red";
-    modalBg.style.display = "block";
-    modal.style.display = "block";
-}
 
 const gettemperaturebutton = document.getElementById("getTemperature");
 
@@ -132,12 +123,6 @@ function actualizar(){
                 bt3.textContent = "VACIO";
             }else{
                 bt3.textContent = "OCUPADO";
-            }
-
-            //modal aviso
-            const parsedTemperature = parseFloat(temperature);
-            if(parsedTemperature > 28 || parsedTemperature < 0){ //menor o igual a cero
-                mostrarModal();
             }
         })
     }
