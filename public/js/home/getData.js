@@ -23,7 +23,7 @@ function alerta3() {
 
 const gettemperaturebutton = document.getElementById("getTemperature");
 
-function actualizar() {
+async function actualizar() {
     const cookieString = document.cookie;
     const cookies = cookieString.split("; ");
 
@@ -68,6 +68,7 @@ function actualizar() {
         dis1.textContent == "VACÍO"
     ) {
         alerta1();
+        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 1).")
     }
 
     if (
@@ -75,6 +76,7 @@ function actualizar() {
         dis2.textContent == "VACÍO"
     ) {
         alerta2();
+        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 2).")
     }
 
     if (
@@ -82,6 +84,7 @@ function actualizar() {
         dis3.textContent == "VACÍO"
     ) {
         alerta3();
+        alert("Precaución: lleva mucho tiempo sin colocar la dosis en uso (Espacio 3).")
     }
 
                 const contenedor1 = document.getElementById("container1");
