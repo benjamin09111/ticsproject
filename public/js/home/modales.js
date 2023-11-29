@@ -1,8 +1,10 @@
 function cerrarModal() {
     const modalBg = document.getElementById("modalBg");
     const modal = document.getElementById("cuidadoModal");
+    const modal2 = document.getElementById("avisollenar");
     modalBg.style.display = "none";
     modal.style.display = "none";
+    modal2.style.display = "none";
 }
 
 function cerrarModal1() {
