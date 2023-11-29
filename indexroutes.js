@@ -286,9 +286,26 @@ router.post("/buttonsget", async(req,res)=>{
         return  res.status(400).json({ success: "false", message: "Dispositivo no encontrado" });
     }
 
-    profile.buttons[0] = parseFloat(buttonState1);
-    profile.buttons[1]= parseFloat(buttonState2);
-    profile.buttons[2] = parseFloat(buttonState3);
+    if(parseFloat(buttonState1)==1){
+        //dispositivo llega como 1 pero es vacío, ponemos 0
+        profile.buttons[0] = 0;
+    }else{
+        profile.buttons[0] = 1;
+    }
+
+    if(parseFloat(buttonState2)==1){
+        //dispositivo llega como 1 pero es vacío, ponemos 0
+        profile.buttons[1] = 0;
+    }else{
+        profile.buttons[0] = 1;
+    }
+
+    if(parseFloat(buttonState3)==1){
+        //dispositivo llega como 1 pero es vacío, ponemos 0
+        profile.buttons[2] = 0;
+    }else{
+        profile.buttons[0] = 1;
+    }
     
     console.log("Botones actualizados, está vacío entonces muestra un: ", parseFloat(buttonState1));
 
