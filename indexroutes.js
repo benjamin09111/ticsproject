@@ -249,10 +249,9 @@ router.post("/temperatureget", async (req, res) => {
 
     profile.temperature = temperature; //temperatura actual
 
-    console.log(profile.temperatures)
-
     //solo se agrega al historial si es diferente a lo ultimo leído
-    if(profile.temperatures[0].value){
+
+    if(profile.temperatures.length() > 0){
         if(profile.temperatures[0].value != temperature){
 
             const currentDate = new Date(Date.now());
@@ -270,7 +269,13 @@ router.post("/temperatureget", async (req, res) => {
                 date: formattedDate
             });
         }
+    }else{
+        profile.temperatures.unshift({
+            value: 0,
+            date: "OFF"
+        })
     }
+        
     await profile.save();
 });
 
