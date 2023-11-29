@@ -251,7 +251,7 @@ router.post("/temperatureget", async (req, res) => {
 
     //solo se agrega al historial si es diferente a lo ultimo leído
 
-    if(profile.temperatures.length() > 0){
+    if(profile.temperatures.length > 0){
         if(profile.temperatures[0].value != temperature){
 
             const currentDate = new Date(Date.now());
