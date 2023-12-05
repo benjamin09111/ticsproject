@@ -271,7 +271,7 @@ router.post("/dosisalert", async(req,res)=>{
 //app envía los botones y se actualiza el arreglo
 router.post("/buttonsget", async(req,res)=>{
     const {buttonState1, buttonState2, buttonState3} = req.body;
-    did = 5;
+    did = "CL-00:00:00:00";
 
     if(!buttonState1 || !buttonState2 || !buttonState3){
         console.log("Fallo. No llego algun boton.");
@@ -316,7 +316,7 @@ router.post("/buttonsget", async(req,res)=>{
 //aqui envía la info el dispositivo
 router.post("/temperatureget", async (req, res) => {
     const {temperature} = req.body;
-    did = 5;
+    did = "CL-00:00:00:00";
 
     if(!temperature){
         console.log("Falla. No llego la temperatura.");
@@ -395,7 +395,7 @@ router.post("/usuario", async (req, res) => {
 });
 
 router.get("/reset", async (req, res) => {
-    did = 5;
+    did = "CL-00:00:00:00";
 
     const profile = await Profile.findOne({did: did});
 
@@ -413,7 +413,7 @@ router.get("/reset", async (req, res) => {
 });
 
 router.get("/restar1", async (req, res) => {
-    did = 5;
+    did = "CL-00:00:00:00";
 
     const profile = await Profile.findOne({did: did});
 
@@ -442,7 +442,7 @@ router.get("/restar1", async (req, res) => {
 });
 
 router.get("/restar2", async (req, res) => {
-    did = 5;
+    did = "CL-00:00:00:00";
 
     const profile = await Profile.findOne({did: did});
 
@@ -469,7 +469,7 @@ router.get("/restar2", async (req, res) => {
     return res.status(200).json({ success: "true", message: "Reestablecido.", act: act, visible: visible});});
 
 router.get("/restar3", async (req, res) => {
-    did = 5;
+    did = "CL-00:00:00:00";
 
     const profile = await Profile.findOne({did: did});
 
@@ -498,7 +498,7 @@ router.get("/restar3", async (req, res) => {
 
 router.post("/fill", async (req, res) => {
     const {espacio1, espacio2, espacio3, max1, max2, max3, d1, d2, d3} = req.body;
-    did = 5;
+    did = "CL-00:00:00:00";
 
     const profile = await Profile.findOne({did: did});
 

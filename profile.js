@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     did: {
-        type: Number,
+        type: String,
         required: true,
         unique: true
     },
